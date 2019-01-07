@@ -1,0 +1,252 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+#img{
+    background-image: url("../img/meimei1.jpg");
+    background-size: cover;
+    height: 600px;
+    position: relative;
+}
+#dao{
+    z-index: 99;
+    position: fixed;
+    margin-top: 20px;
+}
+#we{
+    font-size: 16px;
+    margin-top: 230px;
+    position: absolute;
+    margin-left: 47%;
+}
+#free{
+    width: 412px;
+    height: 40px;
+    /*background-color: white;*/
+    /*opacity: .1;*/
+    color: black;
+    position: absolute;
+    margin-top: 278px;
+    margin-left: 50%;
+    left:-206px;
+
+}
+#free input{
+    font-size: 10px;
+    background-color: rgba(255, 255, 255, 0.5);
+     width: 100%;
+    display: inline-block;
+   text-align: center;
+    line-height: 100%;
+    position: relative;
+    height: 100%;
+    border: none;
+    outline: none;
+    transition: all .5s linear;
+
+}
+#color{
+    color: black;  position: absolute;
+    left:86.7%;
+    z-index: 9999;
+    height: 20px;
+    width: 40px;
+    top: 10px;
+    transform: rotateY(180deg);
+}
+.qi{
+    display: inline-block;
+    width: 18%;
+    margin-top: 80px;
+    height: 120px;
+    vertical-align: top;
+}
+#qi{
+    margin-left: 9%;
+}
+#qi1{
+    margin-left: 5%;
+
+}
+#qi2{
+    margin-left: 5%;
+}
+#qi3{
+    margin-left: 4%;
+}
+#qi4{
+    margin-left: 32%
+}
+#qi5{
+    margin-left: 5%;
+}
+#qi6{
+    margin-left: 4%;
+}
+#qi7{
+    margin-left: 32%;
+
+}
+.a{
+    margin-left: 5%;
+    color: #303030;
+    font-size: 14px;
+}
+.a1{
+    margin-left: 5%;
+    color: #303030;
+    font-size: 16px;
+}
+.b1 {
+    margin-left: 5%;
+    font-size: 13px;
+    color: #303030;
+
+}
+#width{
+    width: 90px;
+}
+.d3{
+    font-size: 14px;
+    color: #303030;
+    margin-left: 5%;
+    display: inline-block;
+}
+/*#c{*/
+/*margin-left: 32%;*/
+    /*color: #303030;*/
+    /*margin-top: -130px;*/
+/*}*/
+/*#v{*/
+    /*margin-left: 55%;*/
+    /*color: #303030;*/
+    /*margin-top: -527px;*/
+/*}*/
+/*#z{*/
+    /*margin-left: 80%;*/
+    /*color: #303030;*/
+    /*margin-top: -362px;*/
+/*}*/
+/*.d1{*/
+    /*margin-left: 32%;*/
+    /*font-size: 14px;*/
+    /*color: #303030;*/
+    /*margin-top: 25px;*/
+/*}*/
+/*.d11{*/
+    /*margin-left: 55%;*/
+    /*font-size: 14px;*/
+    /*color: #303030;*/
+    /*margin-top: 25px;*/
+/*}*/
+/*.d111{*/
+    /*margin-left: 80%;*/
+    /*font-size: 14px;*/
+    /*color: #303030;*/
+    /*margin-top: 25px;*/
+/*}*/
+/*.d1111{*/
+    /*margin-left: 3%;*/
+    /*font-size: 14px;*/
+    /*color: #303030;*/
+    /*margin-top: 29px;*/
+/*}*/
+/*.d2{*/
+    /*margin-left: 32%;*/
+    /*font-size: 14px;*/
+    /*color: #303030;*/
+/*}*/
+/*.d22{*/
+    /*margin-left: 55%;*/
+    /*font-size: 14px;*/
+    /*color: #303030;*/
+/*}*/
+
+/*.d3{*/
+    /*margin-left: 32%;*/
+    /*font-size: 14px;*/
+    /*color: #303030;*/
+    /*margin-top: 40px;*/
+/*}*/
+/*.d3333{*/
+    /*margin-left: 2%;*/
+    /*font-size: 14px;*/
+    /*color: #303030;*/
+    /*margin-top: 55px;*/
+/*}*/
+/*.d33{*/
+    /*margin-left: 55%;*/
+    /*font-size: 14px;*/
+    /*color: #303030;*/
+    /*margin-top: 57px;*/
+/*}*/
+/*.d4{*/
+    /*margin-left: 32%;*/
+    /*font-size: 14px;*/
+    /*color: #303030;*/
+    /*margin-top: 52px;*/
+/*}*/
+/*.d331{*/
+    /*margin-left: 55%;*/
+    /*font-size: 14px;*/
+    /*color: #303030;*/
+    /*margin-top: 55px;*/
+/*}*/
+/*.d44{*/
+    /*margin-left: 55%;*/
+    /*font-size: 14px;*/
+    /*color: #303030;*/
+    /*margin-top: 52px;*/
+/*}*/
+/*.d444{*/
+    /*margin-left: 3%;*/
+    /*font-size: 14px;*/
+    /*color: #303030;*/
+    /*margin-top: 52px;*/
+/*}*/
+a{
+    text-decoration: none;
+    color: black;
+}
+#quan{
+    position: relative;
+    overflow: hidden; display: inline-block;
+    /*margin-top: ;*/
+}
+#quan1{
+    position: relative;
+    overflow: hidden; display: inline-block;
+}
+#quan2{
+    position: relative;
+    overflow: hidden; display: inline-block;
+}
+#quan3{
+    position: relative;
+    overflow: hidden; display: inline-block;
+}#quan4{
+     position: relative;
+     overflow: hidden; display: inline-block;
+ }
+#quan5{
+    position: relative;
+    overflow: hidden; display: inline-block;
+}
+#quan6{
+    position: relative;
+    overflow: hidden; display: inline-block;
+}
+.display{
+    width: 100%;
+    display: inline-block;
+    border-bottom: 1px black solid;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    transition: all .5s;
+    transform: scale(0);
+}
+#xia{
+    margin-top: 5px;
+}
+

@@ -1,0 +1,325 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+section{
+    height: 1100px;
+    /*border: 1px solid red;*/
+    position: relative;
+   margin-top: 100px;
+    margin-bottom: 20px;
+}
+.divLeft{
+    width: 15%;
+    height: 1000px;
+    /*border: 1px solid red;*/
+    float: left;
+}
+.divRight{
+    width: 79%;
+    height: 1000px;
+    /*border: 1px solid;*/
+    float: left;
+}
+.divLeft_logo{
+    width: 100%;
+    height: 100px;
+    /*border: 1px solid;*/
+}
+.divLeft_logo h4{
+    font-size: 20px;
+    letter-spacing: 5px;
+    line-height: 120px;
+    margin-left: 30px;
+    font-weight: normal;
+}
+.divLeft_sex h2{
+    font-size: 18px;
+    margin-top: 30px;
+    margin-left: 30px;
+    margin-bottom: 10px;
+    cursor: pointer;
+}
+.divLeft_sex p{
+    font-size: 14px;
+    margin-left: 50px;
+    margin-top: 5px;
+    cursor: pointer;
+    /*display: inline-block;*/
+}
+.divLeft_sex p:hover{
+    color: #0B85CC;
+}
+.DivColor{
+    width: 80%;
+    height: 100px;
+    /*border: 1px solid red;*/
+    margin-left: 30px;
+    margin-top: 5px;
+}
+.divBS{
+    margin-left: 10px;
+    margin-top: 5px;
+    width: 25px;
+    height: 25px;
+    border-radius: 25px;
+    background-color: #ccd1d5;
+    cursor: pointer;
+    float: left;
+
+}
+.divHS{
+    margin-left: 10px;
+    margin-top: 5px;
+    width: 25px;
+    height: 25px;
+    border-radius: 25px;
+    background-color: black;
+    cursor: pointer;
+    float: left;
+}
+.divRed{
+    margin-left: 10px;
+    margin-top: 5px;
+    width: 25px;
+    height: 25px;
+    border-radius: 25px;
+    background-color: red;
+    cursor: pointer;
+    float: left;
+}
+.divLS{
+    margin-left: 10px;
+    margin-top: 5px;
+    width: 25px;
+    height: 25px;
+    border-radius: 25px;
+    background-color: #336633;
+    cursor: pointer;
+    float: left;
+}
+.divNS{
+    margin-left: 10px;
+    margin-top: 5px;
+    width: 25px;
+    height: 25px;
+    border-radius: 25px;
+    background-color: #0B85CC;
+    cursor: pointer;
+    float: left;
+}
+.divYS{
+    margin-left: 10px;
+    margin-top: 5px;
+    width: 25px;
+    height: 25px;
+    border-radius: 25px;
+    background-color:yellow;
+    cursor: pointer;
+    float: left;
+}
+.divCS{
+    margin-left: 10px;
+    margin-top: 5px;
+    width: 25px;
+    height: 25px;
+    border-radius: 25px;
+    background-color:orange;
+    cursor: pointer;
+    float: left;
+}
+.divZS{
+    margin-left: 10px;
+    margin-top: 5px;
+    width: 25px;
+    height: 25px;
+    border-radius: 25px;
+    background-color:#D829A0;
+    cursor: pointer;
+    float: left;
+}
+.divQS{
+    margin-left: 10px;
+    margin-top: 5px;
+    width: 25px;
+    height: 25px;
+    border-radius: 25px;
+    background-color:forestgreen;
+    cursor: pointer;
+    float: left;
+}
+.divCS1{
+    margin-left: 10px;
+    margin-top: 5px;
+    width: 25px;
+    height: 25px;
+    border-radius: 25px;
+    background-color:lightseagreen;
+    cursor: pointer;
+    float: left;
+}
+.divCS2{
+    margin-left: 10px;
+    margin-top: 5px;
+    width: 25px;
+    height: 25px;
+    border-radius: 25px;
+    background-color:saddlebrown;
+    cursor: pointer;
+    float: left;
+}
+.divCS3{
+    margin-left: 10px;
+    margin-top: 5px;
+    width: 25px;
+    height: 25px;
+    border-radius: 25px;
+    background-color:salmon;
+    cursor: pointer;
+    float: left;
+}
+.divCS4{
+    margin-left: 10px;
+    margin-top: 5px;
+    width: 25px;
+    height: 25px;
+    border-radius: 25px;
+    background-color:darkslateblue;
+    cursor: pointer;
+    float: left;
+}
+.divCS5{
+    margin-left: 10px;
+    margin-top: 5px;
+    width: 25px;
+    height: 25px;
+    border-radius: 25px;
+    background-color:#a6e1ec;
+    cursor: pointer;
+    float: left;
+}
+.divCS6{
+    margin-left: 10px;
+    margin-top: 5px;
+    width: 25px;
+    height: 25px;
+    border-radius: 25px;
+    background-color:sandybrown;
+    cursor: pointer;
+    float: left;
+}
+.divCS7{
+    margin-left: 10px;
+    margin-top: 5px;
+    width: 25px;
+    height: 25px;
+    border-radius: 25px;
+    background-color:#637dff;
+    cursor: pointer;
+    float: left;
+}
+.divCS8{
+    margin-left: 10px;
+    margin-top: 5px;
+    width: 25px;
+    height: 25px;
+    border-radius: 25px;
+    background-color:#a685ca;
+    cursor: pointer;
+    float: left;
+}
+.divCS9{
+    margin-left: 10px;
+    margin-top: 5px;
+    width: 25px;
+    height: 25px;
+    border-radius: 25px;
+    background-color:#faa937;
+    cursor: pointer;
+    float: left;
+}
+.divTable{
+    /*border: 1px solid red;*/
+    color: rgb(0, 0, 0);
+    font-size: 12px;
+    width: 250px;
+    height: 250px;
+    text-align: center;
+    margin-left: 30px;
+    margin-top: 5px;
+    border-collapse: collapse;
+}
+.divTable td{
+    border: 1px solid rgba(0, 0, 0, 0.18);
+    /*background-color: #a685ca;*/
+    cursor: pointer;
+    width: 50px;
+}
+.divTable td:hover{
+    background-color: black;
+    color: whitesmoke;
+}
+
+.divRight_Top{
+    width: 100%;
+    height: 100px;
+    margin-left: 15px;
+    /*border: 1px solid red;*/
+}
+.divRight_Top h1{
+    font-size: 22px;
+    line-height: 140px;
+}
+.divRight_bottom{
+    width: 100%;
+    height: 1000px;
+    /*border: 1px solid red;*/
+}
+
+.divRight_fy{
+    width: 14%;
+    height: 30px;
+    /*border: 1px solid red;*/
+    margin: 0 auto;
+    margin-top: 20px;
+}
+
+.divRight_fy button{
+    width: 70px;
+    height: 25px;
+    float: left;
+    background-color: rgba(0, 0, 0, 0.66);
+    color: white;
+    border: 0;
+}
+.divRight_fy button:hover{
+    background-color: rgb(0, 0, 0);
+    color: white;
+}
+.divRight_fy div{
+    font-size: 14px;
+    float: left;
+}
+
+
+.divRight_img{
+    width: 15%;
+    height: 300px;
+    /*border: 1px solid red;*/
+    margin-left: 15px;
+    margin-top: 15px;
+    float: left;
+    display: inline-block;
+}
+.divRight_img img{
+    width: 100%;
+}
+.divRight_img p{
+    margin-top: 5px;
+    font-size: 12px;
+    text-align: center;
+}
+.divRight_img h6{
+    text-align: center;
+    font-weight: normal;
+}

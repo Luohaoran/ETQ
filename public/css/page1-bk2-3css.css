@@ -1,0 +1,122 @@
+section{
+    padding-top: 150px;
+}
+.Read{
+    font-size: 1.4rem;
+    font-family: Graphik,sans-serif;
+    font-weight: normal;
+    color: #3f3f3f;
+    padding-top:10px;
+    padding-left: 50px;
+    padding-right: 20px;
+    line-height: 1.8;
+}
+.js{
+    font-family: Graphik,sans-serif;
+    font-weight: normal;
+    color: #3f3f3f;
+    padding-top: 40px;
+    padding-left: 50px;
+    padding-right: 20px;
+    line-height: 1.8;
+}
+.bk-top{
+    padding-top: 100px;
+}
+.bk-top2{
+    padding-top: 300px;
+}
+.xianWu{
+    color: black;
+    position: relative;
+    padding-bottom: 2px;
+    cursor: pointer;
+    text-decoration: none;
+    vertical-align:middle;  /*//中间对齐*/
+    overflow:hidden;
+    line-height: 2;
+    color:inherit;
+}
+.xianWu:before{
+    content: '';
+    position: absolute;
+    bottom: 1px;
+    left: 0;
+    width: 100%;
+    height: 1px;
+    background: #313131;
+    opacity: .6;
+    -webkit-transform: scaleX(0);
+    transform: scaleX(0);
+    -webkit-transform-origin: right;
+    transform-origin: right;
+    transition: -webkit-transform .9s cubic-bezier(.19,1,.22,1);
+    transition: transform .9s cubic-bezier(.19,1,.22,1);
+    transition: transform .9s cubic-bezier(.19,1,.22,1),-webkit-transform .9s cubic-bezier(.19,1,.22,1);
+}
+.xianWu:hover:before{
+    -webkit-transform: scaleX(1);
+    transform:scaleX(1);
+    -webkit-transform-origin: left;
+    transform-origin: left;
+    /*transition-delay:1s ;*/
+}
+a:hover{
+    color: black;
+    text-decoration: none
+}
+.size1{
+    text-align: center;
+    margin-top: -50px;
+    opacity: 0;
+}
+.sale1:hover .size1{
+    opacity: 1;
+    transition: all .1s linear;
+}
+.fontJianjie1{
+    text-align: center;
+    line-height: 1.8;
+}
+.sale1:hover .fontJianjie1{
+    opacity: 0;
+    transition: all .1s linear;
+}
+.sale1:hover .LT{
+    opacity: 0;
+    transition: all .1s linear;
+}
+#div1{
+    opacity: 0;
+    margin-top: 150px;
+    transition: all 2s ease-in;
+}
+#div2{
+    opacity: 0;
+    margin-top: 150px;
+    transition: all 2s ease-in;
+}
+#div3{
+    opacity: 0;
+    margin-top: 150px;
+    transition: all 2s ease-in;
+}
+#div4{
+    margin-top: 150px;
+    transition: all 2s ease-in;
+}
+#div5{
+    opacity: 0;
+    margin-top: 150px;
+    transition: all 2s ease-in;
+}
+#div6{
+    opacity: 0;
+    margin-top: 150px;
+    transition: all 2s ease-in;
+}
+#div7{
+    opacity: 0;
+    margin-top: 30px;
+    transition: all 2s ease-in;
+}

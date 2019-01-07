@@ -1,0 +1,50 @@
+section{
+    padding-top: 150px;
+}
+#div1{
+    margin-top: 20px;
+}
+#div2{
+    margin-top: 150px;
+opacity: 0;
+    transition: all 2s ease-in;
+
+}
+#div3{
+    margin-top: 150px;
+    opacity: 0;
+    transition: all 2s ease-in;
+
+}
+#div4{
+    margin-top: 150px;
+    opacity: 0;
+    transition: all 2s ease-in;
+
+}
+#div5{
+    margin-top: 150px;
+    opacity: 0;
+    transition: all 2s ease-in;
+
+}
+#div6{
+    margin-top: 150px;
+    opacity: 0;
+    transition: all 2s ease-in;
+
+}
+.Read{
+    font-size: 1.8rem;
+    font-family: Graphik,sans-serif;
+    font-weight: normal;
+    color: #3f3f3f;
+    padding-top:30px;
+
+    padding-right: 20px;
+    line-height: 1.8;
+}
+.title{
+    font-weight: bolder;
+    font-size: 40px;
+}

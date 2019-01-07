@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Title</title>
+    <link rel="stylesheet" href="../bootstrap-3.3.5-dist/css/bootstrap.css">
+    <link rel="stylesheet" href="../css/yewei.css">
+    <!--[if lt IE 9]>
+    <script src="https://cdn.bootcss.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+    <script src="https://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+    <!--<![endif]&ndash;&gt;-->
+    <!--<link rel="stylesheet" href="..//css/header.css">-->
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/button.css">
+    <link rel="stylesheet" href="../css/nav.css">
+</head>
+<body>
+<%-include('common/nav.ejs')%>
+<section><!--轮播图-->
+    <!--<div class="jumbotron">&lt;!&ndash;巨幕&ndash;&gt;-->
+    <!--<div class="container">-->
+    <!--轮播内容-->
+    <div class="carousel slide" data-ride="carousel" data-interval="3000" id="myCarousel">
+        <!--小圆点-->
+        <ol class="carousel-indicators">
+            <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+            <li data-target="#myCarousel" data-slide-to="1"></li>
+            <li data-target="#myCarousel" data-slide-to="2"></li>
+        </ol>
+        <!--主体内容-->
+        <div class="carousel-inner" role="listbox">
+            <div class="item active">
+                <img src="..//images/lunbo-1.jpg" alt="">
+                <div class="carousel-caption">限时优惠</div>
+            </div>
+            <div class="item">
+                <img src="..//images/lunbo-2.jpg" alt="">
+                <div class="carousel-caption">购买新系列并且免运费</div>
+            </div>
+            <div class="item">
+                <img src="..//images/lunbo-3.jpg" alt="">
+                <div class="carousel-caption">购买新系列并且免运费</div>
+            </div>
+        </div>
+        <!--</div>-->
+        <!--左右控制按钮-->
+        <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
+            <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+        </a>
+        <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
+            <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+        </a>
+        <!--</div>-->
+    </div>
+</section>
+<section id="section2"><!--第二段-->
+    <div class="sec2div">
+        <div class="sec2divson1"></div>
+        <p class="top"><a href="">ETQ女性</a></p><br>
+        <p><a href="/newCollection?s=woman">点击进入购买</a></p>
+    </div>
+    <div class="sec2div">
+        <div class="sec2divson2 "></div>
+        <p class="top"><a href="">ETQ男性</a></p><br>
+        <p><a href="/newCollection?s=man">点击进入购买</a></p>
+    </div>
+    <div class="sec2div">
+        <div class="sec2divson3"></div>
+        <p class="top"><a href="">切西尔靴子</a></p><br>
+        <p><a href="/newCollection?s=qxr">点击进入购买</a></p>
+    </div>
+</section>
+<section id="section3">
+    <div class="sec3div">
+        <div class="sec3divson1"></div>
+        <a href="/newCollection?s=sex">
+        <p class="sec3p">永久收藏</p>
+        <p>值得永久收藏的精品系列</p>
+        </a>
+    </div>
+    <div class="sec3div">
+        <div class="sec3divson2"></div>
+        <a href="/storesETQ">
+        <p class="sec3p"> 阿姆斯特丹旗舰店</p>
+        <p>精湛的服装,鞋类,和配饰经验</p>
+        </a>
+    </div>
+</section>
+<section id="section4">
+    <div id="ins"><img src="..//images/ins.png" alt=""> Instastore</div>
+    <div class="section4div">
+
+        <div class="sec4ivson1"></div>
+        <p class="sec3p">1天前</p>
+        <p>限时优惠：免费有机购物袋，每次购买ETQ产品都能够获得。有效期至2019年12月1日 - 仅限ETQ网上和店内购买。</p>
+    </div>
+    <div class="section4div">
+        <div class="sec4ivson2"></div>
+        <p class="sec3p">7天前</p>
+        <p>秋季海滩编辑 - 6/6 | LT 05陆军绿色，转到产品页面，选择尺寸并要求获得通知。数量有限，千万不要错过。</p>
+    </div>
+    <div class="section4div">
+        <div class="sec4ivson3"></div>
+        <p class="sec3p">1周前</p>
+        <p>秋天海滩编辑 - 5/6 | 采用合金色正绒面革的MT 02，转到产品页面，选择尺寸并要求获得通知。数量有限，千万不要错过。</p>
+    </div>
+    <div class="section4div">
+        <div class="sec4ivson4"></div>
+        <p class="sec3p">2个星期前</p>
+        <p>秋天海滩编辑 - 4/6 | 独特的空间灰色，在线购物[点击链接]。</p>
+    </div>
+</section>
+<%-include('common/footer.ejs')%>
+<script src="../bootstrap-3.3.5-dist/js/jquery-1.11.3.js"></script>
+<script src="../bootstrap-3.3.5-dist/js/bootstrap.js"></script>
+<script src="../js/nav.js"></script>
+<script src="../js/yewei.js"></script>
+<script>
+
+</script>
+</body>
+</html>

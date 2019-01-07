@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Title</title>
+    <link rel="stylesheet" href="../bootstrap-3.3.5-dist/css/bootstrap.css">
+    <link rel="stylesheet" href="../css/songhuo.css">
+    <link rel="stylesheet" href="../css/button.css">
+    <link rel="stylesheet" href="../css/nav.css">
+    <link rel="stylesheet" href="../css/yewei.css">
+    <!--[if lt IE 9]>
+    <script src="https://cdn.bootcss.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+    <script src="https://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+    <!--<![endif]&ndash;&gt;-->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.2/css/all.css" integrity="sha384-/rXc/GQVaYpyDdyxK+ecHPVYJSN9bmVFBvjA/9eOB+pb3F2w2N6fc5qB9Ew5yIns" crossorigin="anonymous">
+</head>
+<body>
+<%-include('common/nav.ejs')%>
+<br><br><br><br><br><br><br><br><br><br><br><br><br>
+<section>
+    <div id="hour123">
+        <span id="hour"><i class="fas fa-angle-left" id="jian"></i><i class="fas fa-arrow-left" id="jian1"></i></span>
+        <a href="../html/information.html"><span id="return">返回</span></a>
+    </div>
+    <div id="hour4">
+        <span id="song">送货信息</span>
+        <br>
+        <span id="kou">我们为所有订单提供全球免费送货服务。请在下面的矩阵中查看您的交货时间窗口。</span>
+        <!--详细-->
+        <div>
+            <span id="yu" class="font">区域</span>
+            <span id="fang" class="font">方法</span>
+            <span id="money" class="font">交钱</span>
+            <span id="ji" class="font">交货窗口</span>
+            <hr class="hr">
+        </div>
+        <div>
+            <span id="he">荷兰，比利时和卢森堡</span>
+            <span id="fa">发布NL</span>
+            <span id="zi">自由</span>
+            <span id="ti">1 - 2天</span>
+            <hr class="hr1">
+        </div>
+        <div>
+            <span id="he1">欧洲</span>
+            <span id="fa1">DPD - 标准	</span>
+            <span id="zi1">自由</span>
+            <span id="ti1">15天</span>
+            <hr class="hr2">
+        </div>
+        <div>
+            <span id="he2">世界其他地区</span>
+            <span id="fa2">联邦快递标准</span>
+            <span id="zi2">自由</span>
+            <span id="ti2">3 - 10天</span>
+            <hr class="hr3">
+        </div>
+    </div>
+</section>
+<%-include('common/footer.ejs')%>
+<script src="../public/js/songhuo.js"></script>
+<script src="../public/bootstrap-3.3.5-dist/js/bootstrap.js"></script>
+<script src="../public/bootstrap-3.3.5-dist/js/jquery-1.11.3.js"></script>
+<script src="../public/js/nav.js"></script>
+<script src="../public/js/jquery-3.1.1.js"></script>
+<script src="../public/js/yewei.js"></script>
+</body>
+</html>

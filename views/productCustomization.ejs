@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Title</title>
+    <link rel="stylesheet" href="../bootstrap-3.3.5-dist/css/bootstrap.css">
+    <link rel="stylesheet" href="../css/button.css">
+    <link rel="stylesheet" href="../css/nav.css">
+    <link rel="stylesheet" href="../css/productCustomization.css">
+    <link rel="stylesheet" href="../css/yewei.css">
+    <!--[if lt IE 9]>
+    <script src="https://cdn.bootcss.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+    <script src="https://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+    <!--<![endif]&ndash;&gt;-->
+</head>
+<body>
+<%-include('common/nav.ejs')%>
+<section>
+    <div class="divLeft">
+        <div class="divLeft_logo">
+        </div>
+        <div class="divLeft_sex">
+            <h2>性别</h2>
+            <a href="productCustomization_nan.do">男鞋</a><br>
+            <a href="productCustomization_nv.do">女鞋</a>
+        </div>
+    </div>
+    <div class="divRight">
+        <div class="divRight_Top">
+            <h1>Essence系列特别定制</h1>
+        </div>
+        <div>
+        <div  class="divRight_bottom" id="qwq" >
+            <!--<a href="/page.do?id=?" onclick="dian">-->
+
+            <!--</a>-->
+
+        </div>
+        </div>
+        <div class="divRight_fy">
+            <button onclick="prevPage()">上一页</button>
+            <div id="numberBlock"></div>
+            <div style="color: black">总共<span id="totalpage"></span>页</div>
+            <button onclick="nextPage()">下一页</button>
+
+        </div>
+    </div>
+    <div id="mot"></div>
+</section>
+<%-include('common/footer.ejs')%>
+
+<script src="../js/jquery-3.1.1.js"></script>
+<script src="../js/yewei.js"></script>
+<script src="../bootstrap-3.3.5-dist/js/bootstrap.js"></script>
+<script src="../js/nav.js"></script>
+<script src="../js/ajax.js"></script>
+<script>
+    var currentPage=1;//当前在第几页
+    var pageTotal=0;  //总页数
+    var totalpage=document.getElementById("totalpage");
+
+    window.onload=function () {
+        getPagCustomization();
+        pagingCustomization();
+    }
+
+    function getPagCustomization() {
+        // console.log("sssssssss")
+        myAjax("post","/getPagCustomization.do","currentPage="+currentPage,showCustomization,false)
+    }
+
+    function showCustomization() {
+        console.log(xhr.responseText);
+        var data=JSON.parse(xhr.responseText);
+        console.log(data);
+        document.getElementById("qwq").innerHTML="";
+        for (var i=0;i<data.length;i++){
+            document.getElementById("qwq").innerHTML+=" <div data-toggle=\"modal\" data-target=\".bs-example-modal-sm\" onclick=\"dian("+data[i].id+")\" >\n" +
+                " <div  class=\"divRight_img\">\n" +
+                "                <img src=\""+data[i].img+"\" alt=\"\">\n" +
+                "                <p>"+data[i].p_name+"</p>\n" +
+                "                <h6>￥"+data[i].p_price+"</h6>\n" +
+                "            </div>"
+                "\n" +
+                "            </div>"
+                "            </a>"
+                "            </a>"
+        }
+    }
+    function dian(asd) {
+        var zxc=asd
+        document.getElementById("mot").innerHTML="<div class=\"modal fade bs-example-modal-sm\"  tabindex=\"-1\" role=\"dialog\" aria-labelledby=\"mySmallModalLabel\">\n" +
+            "        <div class=\"modal-dialog modal-sm\" role=\"document\">\n" +
+            "            <div class=\"modal-content\">\n" +
+            "                <div class=\"tishi\">\n" +
+            "                    <span>您是否需要定制此款商品？<br> 如果是稍后将有客服与您联系</span>\n" +
+            "                </div>\n" +
+            "                <div class=\"modal-footer\">\n" +
+            "                    <button type=\"button\" class=\"btn btn-default\" data-dismiss=\"modal\">不需要定制</button>\n" +
+            "                    <button type=\"button\" id=\"btn\" onclick=\"que("+zxc+")\" class=\"btn btn-primary\" data-dismiss=\"modal\"> 需要定制</button>\n" +
+            "                </div>\n" +
+            "            </div>\n" +
+            "        </div>\n" +
+            "    </div>";
+    }
+    function getNow(s) {
+        return s < 10 ? '0' + s: s;
+    }
+function que(par) {
+    var myDate = new Date();
+    //获取当前年
+    var year=myDate.getFullYear();
+    //获取当前月
+    var month=myDate.getMonth()+1;
+    //获取当前日
+    var date=myDate.getDate();
+    var h=myDate.getHours();       //获取当前小时数(0-23)
+    var m=myDate.getMinutes();     //获取当前分钟数(0-59)
+    var s=myDate.getSeconds();
+    var now=year+'-'+getNow(month)+"-"+getNow(date)+" "+getNow(h)+':'+getNow(m)+":"+getNow(s);
+    var random=String(year)+month+String(date)+String(h)+String(m)+String(s)
+    $.ajax({
+        type: "get",
+        url: "/chuan.do",
+        data: {//传参
+            id:par,
+            shi:now,
+            din:random
+        },
+        success: function (data) {
+        }
+    })
+}
+    //分页
+    function pagingCustomization() {
+        myAjax("post","/pagingCustomization.do","",function () {
+            var data=JSON.parse(xhr.responseText);
+            // console.log(data);
+            pageTotal=data;
+            totalpage.innerHTML=pageTotal;
+        })
+    }
+
+    function nextPage() {
+        currentPage++;
+        if(currentPage>pageTotal){
+            // alert("这是最后一页");
+            currentPage=pageTotal;
+        }else {
+            getPagCustomization();
+            totalpage.innerHTML=currentPage+"/"+pageTotal;
+        }
+    }
+    function prevPage() {
+        currentPage--;
+        if (currentPage<1) {
+            currentPage=1;
+            // alert("这是第一页");
+
+        }else {
+            getPagCustomization();
+            totalpage.innerHTML=currentPage+"/"+pageTotal;
+        }
+    }
+
+
+
+</script>
+</body>
+</html>

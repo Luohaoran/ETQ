@@ -1,0 +1,257 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+html,body{height:150%}
+#body{
+    height: 60%;
+    padding: 30px;
+}
+#guolv{
+    float: right;
+    margin-right: 3%;
+    font-size: 10px;
+}
+#guolvDiv{margin-top: 10%}
+
+.clear{
+    clear: both;
+}
+/*第一个版块*/
+#header1{
+    height: 80%;
+    opacity: 0;
+    transition: opacity 1s;
+}
+#headerLeft{
+    height: 100%;
+}
+#headerSm{
+    height: 50%;
+}
+#headerText{
+    height: 50%;
+    padding: 0 0 0 25px;
+}
+#headerT{
+    font-size: 10px;
+}
+#headerP{
+    font-size:22px;
+    margin-top: 25px;
+    width: 70%;
+    /*font-weight: bolder;*/
+}
+/*页头大图*/
+
+#bigImg1{
+    height: 100%;
+    background-size: cover;
+}
+#bigImg1-1{
+    background-image: url("../images/newcollection/headerBigImg.jpg");
+    height: 92.5%;
+    background-size: cover;
+}
+/*小图片*/
+#smImg1{
+    background-image: url("../images/newcollection/smImg01-1.jpg");
+    background-position: 50% 50%;
+}
+#sm1:hover #smImg1{
+    background-image: url("../images/newcollection/smImg01-2.jpg");
+}
+#smImg2{
+    background-image: url("../images/newcollection/smImg02-1.jpg");
+    background-position: 50% 50%;
+}
+#sm2:hover #smImg2{
+    background-image: url("../images/newcollection/smImg02-2.jpg");
+}
+#smImg3{
+    background-image: url("../images/newcollection/smImg03-1.jpg");
+    background-position: 50% 50%;
+}
+#sm3:hover #smImg3{
+    background-image: url("../images/newcollection/smImg03-2.jpg");
+}
+#smImg4{
+    background-image: url("../images/newcollection/smImg04-1.jpg");
+    background-position: 50% 50%;
+}
+#sm4:hover #smImg4{
+    background-image: url("../images/newcollection/smImg04-2.jpg");
+}
+#smImg5{
+     background-image: url("../images/newcollection/smImg05-1.jpg");
+    background-position: 50% 50%;
+ }
+#sm5:hover #smImg5{
+    background-image: url("../images/newcollection/smImg05-2.jpg");
+}
+#smImg6{
+    background-image: url("../images/newcollection/smImg06-1.jpg");
+    background-position: 50% 50%;
+}
+#sm6:hover #smImg6{
+    background-image: url("../images/newcollection/smImg06-2.jpg");
+}
+#smImg7{
+    background-image: url("../images/newcollection/smImg07-1.jpg");
+    background-position: 50% 50%;
+}
+#sm7:hover #smImg7{
+    background-image: url("../images/newcollection/smImg07-2.jpg");
+}
+#smImg8{
+     background-image: url("../images/newcollection/smImg08-1.jpg");
+    background-position: 50% 50%;
+ }
+#sm8:hover #smImg8{
+    background-image: url("../images/newcollection/smImg08-2.jpg");
+}
+#smImg9{
+    background-image: url("../images/newcollection/smImg09-1.jpg");
+    background-position: 50% 50%;
+}
+#sm9:hover #smImg9{
+    background-image: url("../images/newcollection/smImg09-2.jpg");
+}
+#smImg10{
+    background-image: url("../images/newcollection/smImg10-1.jpg");
+    background-position: 50% 50%;
+}
+#sm10:hover #smImg10{
+    background-image: url("../images/newcollection/smImg10-2.jpg");
+}
+.smImg{
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+}
+.sm-All{
+    height: 85%;
+    width: 100%;
+    padding:0 25px;
+
+}
+.shoesColor{
+    font-size: 10px;
+    height: 20px;
+    line-height: 20px;
+    margin: 15px 0 0 0;
+    text-align: center;
+}
+.shoesColor span{
+    font-weight: bold;
+}
+.shoesPrice{
+    font-size: 8px;
+    text-align: center;
+}
+.height15{
+    height: 40%;
+    margin-top: 35px;
+    opacity: 0;
+    transition: opacity 1.5s;
+}
+/*第三排图片*/
+#height30{
+    height: 100%;
+    margin-top: 30px;
+    opacity: 0;
+    transition: opacity 1.8s;
+}
+#bigImg2{
+    margin-left: 15px;
+    height: 92.5%;
+    width: 48%;
+    background-image: url("../images/newcollection/bodyBigImg.jpg");
+    background-size: cover;
+    background-position: 50% 50%;
+}
+#thirdSm{
+    height: 100%;
+    padding: 0;
+}
+.sm-All1{
+    height: 50%;
+    padding: 0!important;
+}
+.smImg1{
+    width: 92%;
+    margin-left: 8%;
+    height: 85%;
+    background-size: cover;
+}
+/*翻页*/
+i{
+    color: black;
+
+}
+#turnPage{
+    text-align: center;
+    height: 10%;
+    font-size: 12px;
+}
+#turnPage div{
+    margin-top: 2.5%;
+}
+/*小图片轮播翻页键*/
+.leftBtn{
+    background-color: rgba(255, 255, 255, 0.8);
+    height: 30px;
+    width: 30px;
+    border-radius: 100%;
+    text-align: center;
+    padding: 6px;
+    display: inline-block;
+    margin-top: 45%;
+    margin-left: 15px;
+    opacity: 0;
+    transition: all .5s;
+    cursor: pointer;
+}
+.rightBtn{
+    background-color: rgba(255, 255, 255, 0.8);
+    height: 30px;
+    width: 30px;
+    border-radius: 100%;
+    text-align: center;
+    padding: 6px;
+    display: inline-block;
+    float: right;
+    margin-top: 45%;
+    margin-right: 15px;
+    opacity: 0;
+    transition: all .5s;
+    cursor: pointer;
+}
+.smImg:hover .leftBtn{
+    opacity: 1;
+}
+.smImg:hover .rightBtn{
+    opacity: 1;
+}
+.smImg1:hover .leftBtn{
+    opacity: 1;
+}
+.smImg1:hover .rightBtn{
+    opacity: 1;
+}
+.smText{
+    border: 1px rgba(255, 255, 255, 0) solid;
+}
+/*回到顶部*/
+#backTop{
+    position: fixed;
+    background-color: rgba(255, 255, 255, 0.71);
+    border: 1px rgba(0, 0, 0, 0.25) solid;
+    border-radius: 100%;
+    height: 30px;
+    width: 30px;
+    bottom: 50px;
+    text-align: center;
+    line-height: 30px;
+    display: none;
+}

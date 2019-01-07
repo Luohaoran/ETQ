@@ -1,0 +1,216 @@
+*{
+    margin: 0;
+    padding: 0;
+    font-size: 10px;
+}
+#footer{
+    width: 100%;
+    margin-top: 150px;
+    /*height: 500px;*/
+    /*background-color: wheat;*/
+}
+.wei{
+    width: 100%;
+    height: 150px;
+    /*background-color: aqua;*/
+    margin-top: 70px
+}
+.guan{
+    /*float: left;*/
+    display: inline-block;
+    width: 25%;
+    height: 150px;
+    /*background-color: cadetblue;*/
+    margin-left: 3%;
+}
+.etq{
+    line-height: 2;
+}
+.guanYu,.diZhi,.singel,.lianXi,.xinXi,.genZhe:hover{
+    cursor: pointer;
+}
+.di{
+    /*float: left;*/
+    display: inline-block;
+    width: 14%;
+    height: 150px;
+    /*background-color: aquamarine;*/
+    margin-left: 3%;
+}
+.singel{
+    line-height: 2;
+}
+.lian{
+    /*float: left;*/
+    display: inline-block;
+    width: 14%;
+    height: 150px;
+    margin-left: 3%;
+    /*background-color: aquamarine;*/
+}
+.xin{
+    /*float: left;*/
+    display: inline-block;
+    width: 14%;
+    height: 150px;
+    margin-left: 3%;
+    /*background-color: darkblue;*/
+}
+.gen{
+    display: inline-block;
+    /*float: left;*/
+    width: 14%;
+    height: 150px;
+    margin-left: 3%;
+    /*background-color: cadetblue;*/
+}
+.wei2{
+    width: 100%;
+    height: 85px;
+    /*background-color: greenyellow;*/
+    margin-top: 100px;
+}
+.tong{
+    width: 33%;
+    height: 85px;
+    margin-left: 3%;
+    /*background-color: green;*/
+    /*float: left;*/
+    display: inline-block;
+}
+.wei2>div>input{
+    width: 75%;
+    margin-left: 20px;
+    outline: medium;
+    border: 0px ;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.31);
+}
+.ti{
+    margin-left: 20px;
+}
+.ti:hover{
+    cursor: pointer;
+}
+.lou{
+    /*float: left;*/
+    display: inline-block;
+    width: 50%;
+    margin-left: 4%;
+    /*background-color: sandybrown;*/
+}
+.lou>img{
+    height: 30px;
+    margin-left: 20px;
+}
+.tiao{
+    /*float: left;*/
+    display: inline-block;
+    width: 8%;
+    margin-top:15px;
+    /*background-color: #31b293;*/
+}
+
+.read{
+    color: black;
+    position: relative;
+    padding-bottom: 1px;
+    cursor: pointer;
+    text-decoration: none;
+}
+.read:after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 1px;
+    width: 100%;
+    height: 1px;
+    background: #313131;
+    -webkit-transform: scaleX(1);
+    transform: scaleX(1);
+    opacity: .6;
+    -webkit-transform-origin: left;  //原点向左
+    transform-origin: left;
+    transition: -webkit-transform .7s cubic-bezier(.19,1,.22,1) .2s;
+    transition: transform .7s cubic-bezier(.19,1,.22,1) .2s;
+    transition: transform .7s cubic-bezier(.19,1,.22,1) .2s,-webkit-transform .7s cubic-bezier(.19,1,.22,1) .2s;
+}
+.read:hover:after {
+    -webkit-transform: scaleX(0);
+    transform:scaleX(0);
+    -webkit-transform-origin: right;
+    transform-origin: right;
+    transition-delay:0s ;
+}
+.read:hover:before {
+    transition-delay:.3s ;
+}
+.xianWu{
+    color: black;
+    position: relative;
+    padding-bottom: 2px;
+    cursor: pointer;
+    text-decoration: none;
+    /*display: block;*/
+    vertical-align:middle;  /*//中间对齐*/
+    overflow:hidden;
+    line-height: 2;
+}
+.xianWu:before{
+    content: '';
+    position: absolute;
+    bottom: 1px;
+    left: 0;
+    width: 100%;
+    height: 1px;
+    background: #313131;
+    opacity: .6;
+    -webkit-transform: scaleX(0);
+    transform: scaleX(0);
+    -webkit-transform-origin: right;
+    transform-origin: right;
+    transition: -webkit-transform .9s cubic-bezier(.19,1,.22,1);
+    transition: transform .9s cubic-bezier(.19,1,.22,1);
+    transition: transform .9s cubic-bezier(.19,1,.22,1),-webkit-transform .9s cubic-bezier(.19,1,.22,1);
+}
+.xianWu:hover:before{
+    -webkit-transform: scaleX(1);
+    transform:scaleX(1);
+    -webkit-transform-origin: left;
+    transform-origin: left;
+    /*transition-delay:1s ;*/
+}
+
+.xiahua{
+    border: none;
+    background-color: rgba(0,0,0 ,0);
+}
+.demo1 {
+    font-size: 16px;
+    color: black;
+    position: relative;
+}
+/* linkone */
+.link-1 a.demo1:after {
+    content: '';
+    border-bottom: solid 1px black;
+    position: absolute;
+    bottom: 0;
+    width: 0;
+}
+
+
+.link-1 a.demo1:after {
+    right: 0;
+}
+
+ .link-1 a.demo1:hover:after {
+    width: 100%;
+}
+
+.link-1 a.demo1:after {
+    -webkit-transition: all 0.2s ease;
+    transition: all 0.2s ease;
+}
+.lastWord{
+    font-size: 8px;
+}

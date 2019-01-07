@@ -1,0 +1,158 @@
+
+.xiahua{
+    border: none;
+    background-color: rgba(0,0,0 ,0);
+}
+.demo {
+  text-transform: uppercase;
+  font-size: 36px;
+  color: black;
+  text-decoration: none;
+  /*position: relative;*/
+  /*display: block;*/
+}
+
+[class^="link-"] {
+  /*display: inline-block;*/
+  /*margin: 2em*/
+}
+
+/* linkone */
+.link-1 a.demo:before, .link-1 a.demo:after {
+  content: '';
+  border-bottom: solid 1px black;
+  /*position: absolute;*/
+  bottom: 0;
+  width: 0;
+}
+
+/*.link-1 a.demo:before { left: 0; }*/
+/*.link-1 a.demo:after { right: 0; }*/
+
+.link-1 a.demo:hover:before, .link-1 a.demo:hover:after {
+  /*width: 50%;*/
+}
+
+.link-1 a.demo:before, .link-1 a.demo:after {
+  -webkit-transition: all 0.2s ease;
+          transition: all 0.2s ease;
+}
+#section2{
+    height: 350px;
+    width: 100%;
+    position: relative;
+    /*border: 1px solid black;*/
+
+    margin-top: 100px;
+}
+/*第二个section*/
+.sec2div{
+    width:30%;
+    position: relative;
+    height: 100%;
+    display: inline-block;
+    margin-left: 3%;
+    font-size: 12px;
+}
+.sec2div>div{
+    width: 55%;
+    height: 100%;
+    position: relative;
+    background-size: cover;
+
+    /*display: table-cell;*/
+    /*vertical-align: middle;*/
+}
+.sec2div>p{
+    /*margin-top: 150px;*/
+    margin-left: 6%;
+    height: 30px;
+    width: 15%;
+    /*border: 1px red solid;*/
+    display: inline-block;
+    /*vertical-align: middle;*/
+}
+.sec2divson1{
+    float: left;
+    background-image: url("../images/section-2-1.jpg");
+}
+.sec2divson2{
+    float: left;
+    background-image: url("../images/section-2-2.jpg");
+}
+.sec2divson3{
+    float: left;
+    background-image: url("../images/section-2-3.jpg");
+}
+.top{
+    margin-top: 150px;
+}
+/*第三个section*/
+#section3{
+    position: relative;
+    top: 130px;
+    height: 600px;
+    /*border: 1px solid black;*/
+}
+.sec3div{
+    display: inline-block;
+    width: 45%;
+    height: 100%;
+    margin-left: 3%;
+}
+.sec3div>div{
+    /*float: left;*/
+    /*width: 712px;*/
+    /*margin-left: 30px;*/
+    height: 534px;
+    background-size: cover;
+    /*position: absolute;*/
+}
+.sec3p{
+    /*margin-left: 30px;*/
+    margin-top: 10px;
+}
+.sec3divson1{
+    background-image: url("../images/section-3-1.jpg");
+}
+.sec3divson2{
+    background-image: url("../images/section-3-2.jpg");
+}
+/*第四个*/
+#section4{
+    position: relative;
+    top: 180px;
+    height: 600px;
+    /*border: 1px solid black;*/
+}
+.section4div{
+    margin-left: 2%;
+    display: inline-block;
+    width: 22%;
+    /*border: 1px red solid;*/
+}
+.section4div>div{
+    width: 100%;
+    height: 341px;
+    background-size: cover;
+ }
+.section4div>p{
+    width: 100%;
+}
+.sec4ivson1{
+    background-image: url("../images/section-4-1.jpg");
+}
+.sec4ivson2{
+    background-image: url("../images/section-4-2.jpg");
+}
+.sec4ivson3{
+     background-image: url("../images/section-4-3.jpg");
+ }
+.sec4ivson4{
+    background-image: url("../images/section-4-4.jpg");
+}
+#ins{
+    margin-left: 30px;
+    margin-bottom: 20px;
+}
+

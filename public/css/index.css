@@ -1,0 +1,151 @@
+#back{
+    width:97%;
+    height: 300px;
+    background-color: white;
+    z-index: 999;
+    position: fixed;
+    margin-left:1%;
+    margin-top:1%;
+}
+#section{
+    background-color: grey;
+    height: 1500px;
+    z-index: -1;
+}
+#img{
+    margin-top:1%;
+    margin-left: 1%;
+    cursor: pointer;
+}
+.contact {
+    font-size: 12px;
+    margin-left: 12%;
+    display: inline-block;
+    position: relative;
+    overflow: hidden;
+}
+.contact2 {
+    font-size: 12px;
+    margin-left: 1%;  cursor: pointer;
+    border:0;
+    outline: none;
+    background:transparent;
+    -webkit-appearance:none;
+    width:70px;
+    position: relative;
+
+}
+.contact22 {
+    font-size: 12px;
+    margin-left: -16px;
+    display: inline-block;
+}
+#down{
+    font-size: 4px;
+    margin-left: -35px;
+    margin-top: 5px;  cursor: pointer;
+   position: absolute;
+
+}
+#in{
+    position: relative;
+    margin-left: 45%;
+    margin-top: -128px;
+    font-size: 12px;
+}
+.contact1{
+   display: inline-block;
+width: 60px;
+    height: 25px;
+    cursor: pointer;
+}
+.contact5{
+    display: inline-block;
+    width: 90px;
+    height: 25px;
+    cursor: pointer;
+}
+.contact3{
+    display: inline-block;
+    /*width: 140px;*/
+    height: 25px;
+    cursor: pointer;
+}
+#qu{
+    position: relative;
+    margin-left: 65%;
+    margin-top: -154px;
+    font-size: 12px;
+}
+#cha{
+    margin-top: 10px;
+    right: 3%;
+    font-size: 25px;
+    color:black;
+    position: absolute;
+    cursor: pointer;
+}
+.cur{
+    cursor: pointer;
+}
+a{
+    text-decoration: none;
+    color:black;
+}
+#line{
+    cursor: pointer;
+}
+#line1{
+    cursor: pointer;
+}
+.display{
+    width: 100%;
+    display: inline-block;
+    border-bottom: 1px black solid;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    transition: all .5s;
+    transform: scale(0);
+    /*transform-origin: 0 0;*/
+}
+#line2{
+    position: relative;
+    overflow: hidden; display: inline-block;
+}
+#line3{
+    position: relative;
+    overflow: hidden; display: inline-block;
+}
+#line4{
+    position: relative;
+    overflow: hidden; display: inline-block;
+}
+#line5{
+    position: relative;
+    overflow: hidden; display: inline-block;
+}
+#line11{
+    position: relative;
+    overflow: hidden; display: inline-block;
+}
+#line6{
+    position: relative;
+    overflow: hidden; display: inline-block;
+}
+#line7{
+    position: relative;
+    overflow: hidden; display: inline-block;
+}
+#line8{
+    position: relative;
+    overflow: hidden; display: inline-block;
+}
+#line9{
+    position: relative;
+    overflow: hidden; display: inline-block;
+}
+#line0{
+    position: relative;
+    overflow: hidden; display: inline-block;
+}

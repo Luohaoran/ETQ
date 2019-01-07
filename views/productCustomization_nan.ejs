@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Title</title>
+    <link rel="stylesheet" href="../bootstrap-3.3.5-dist/css/bootstrap.css">
+    <link rel="stylesheet" href="../css/button.css">
+    <link rel="stylesheet" href="../css/nav.css">
+    <link rel="stylesheet" href="../css/productCustomization_nan.css">
+    <link rel="stylesheet" href="../css/yewei.css">
+    <!--[if lt IE 9]>
+    <script src="https://cdn.bootcss.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+    <script src="https://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+    <!--<![endif]&ndash;&gt;-->
+</head>
+<body>
+<%-include('common/nav.ejs')%>
+<section>
+    <div class="divLeft">
+        <div class="divLeft_logo">
+
+        </div>
+        <div class="divLeft_sex">
+            <h2>系列</h2>
+            <P id="Essence" onclick="queryData()">Essence系列</P>
+            <P id="CB" onclick="queryDataCB()">CB系列</P>
+            <P id="NT" onclick="queryDataMT()">MT系列</P>
+
+            <h2>材质</h2>
+            <P id="TR" onclick="queryMaterialES()">天然材质</P>
+            <P id="PU" onclick="queryMaterialCB()">PU革材质</P>
+            <P id="CX" onclick="queryMaterialMT()">超细纤维材质</P>
+
+            <h2>颜色</h2>
+            <div class="DivColor">
+                <div class="divBS" onclick="queryColorBS()"></div>
+                <div class="divHS" onclick="queryColorHS()"></div>
+                <div class="divRed" onclick="queryColorRed()"></div>
+                <div class="divLS" onclick="queryColorLS()"></div>
+                <div class="divNS" onclick="queryColorNS()"></div>
+                <div class="divYS" onclick="queryColorYS()"></div>
+                <div class="divCS" onclick="queryColorQS()"></div>
+                <div class="divQS" onclick="queryColorQS()"></div>
+                <div class="divCS1" onclick="queryColorQL()"></div>
+                <div class="divCS2" onclick="queryColorZS()"></div>
+                <div class="divCS3" onclick="queryColorFS()"></div>
+                <div class="divCS4" onclick="queryColorSL()"></div>
+                <div class="divCS5" onclick="queryColorHB()"></div>
+                <div class="divCS6" onclick="queryColorQL()"></div>
+                <div class="divCS7" onclick="queryColorFS()"></div>
+                <div class="divCS8" onclick="queryColorZH()"></div>
+                <div class="divCS9" onclick="queryColorQS()"></div>
+            </div>
+
+            <h2>尺码</h2>
+            <table class="divTable">
+                <tr>
+                    <td onclick="querySize_35()">35</td>
+                    <td onclick="querySize_36()">36</td>
+                    <td onclick="querySize_37()">37</td>
+                    <td onclick="querySize_38()">38</td>
+                    <td onclick="querySize_39()">39</td>
+                </tr>
+                <tr>
+                    <td onclick="querySize_40()">40</td>
+                    <td onclick="querySize_41()">41</td>
+                    <td onclick="querySize_42()">42</td>
+                    <td onclick="querySize_43()">43</td>
+                    <td onclick="querySize_44()">44</td>
+                </tr>
+                <tr>
+                    <td onclick="querySize_445()">44.5</td>
+                    <td onclick="querySize_45()">45</td>
+                    <td onclick="querySize_455()">45.5</td>
+                    <td onclick="querySize_46()">46</td>
+                    <td onclick="querySize_465()">46.5</td>
+                </tr>
+                <tr>
+                    <td onclick="querySize_47()">47</td>
+                    <td onclick="querySize_475()">47.5</td>
+                    <td onclick="querySize_48()">48</td>
+                    <td onclick="querySize_49()">49</td>
+                    <td onclick="querySize_50()">50</td>
+                </tr>
+            </table>
+        </div>
+    </div>
+    <div class="divRight">
+        <div class="divRight_Top">
+            <h1>男鞋特别定制</h1>
+        </div>
+
+        <div class="divRight_bottom" id="qwq">
+            <!--<div class="divRight_img filter-item img1" >-->
+                <!--<img src="" alt="">-->
+                <!--<p></p>-->
+                <!--<h6></h6>-->
+            <!--</div>-->
+        </div>
+        <div class="divRight_fy">
+            <button onclick="prevPage()">上一页</button>
+            <div id="numberBlock"></div>
+            <div style="color: black">总共<span id="totalpage"></span>页</div>
+            <button onclick="nextPage()">下一页</button>
+
+        </div>
+    </div>
+
+</section>
+<%-include('common/yewei.ejs')%>
+
+
+<script src="../js/jquery-3.1.1.js"></script>
+<script src="../js/yewei.js"></script>
+<script src="../bootstrap-3.3.5-dist/js/bootstrap.js"></script>
+<script src="../js/nav.js"></script>
+<script src="../js/ajax.js"></script>
+
+<script>
+    var currentPage=1;//当前在第几页
+    var pageTotal=0;  //总页数
+    var totalpage=document.getElementById("totalpage");
+
+    window.onload=function () {
+        getPagCustomization();
+        pagingCustomization();
+    }
+    //显示数据
+    function getPagCustomization() {
+        myAjax("post","/getPagCustomization.do","currentPage="+currentPage,showCustomization,false)
+    }
+    function showCustomization() {
+        // console.log(xhr.responseText);
+        var data=JSON.parse(xhr.responseText);
+        console.log("sssssssss");
+        document.getElementById("qwq").innerHTML="";
+        for (var i=0;i<data.length;i++){
+            document.getElementById("qwq").innerHTML+=" <a href=\"/page.do?id="+data[i].id+"\">\n" +
+                " <div  class=\"divRight_img\">\n" +
+                "                <img src=\""+data[i].img+"\" alt=\"\">\n" +
+                "                <p>"+data[i].p_name+"</p>\n" +
+                "                <h6>￥"+data[i].p_price+"</h6>\n" +
+                "            </div>"
+            "\n" +
+            "            </a>"
+        }
+
+    }
+    //分页
+    function pagingCustomization() {
+        myAjax("post","/pagingCustomization.do","",function () {
+            var data=JSON.parse(xhr.responseText);
+            pageTotal=data;
+            totalpage.innerHTML=pageTotal;
+        })
+    }
+    function nextPage() {
+        currentPage++;
+        if(currentPage>pageTotal){
+            // alert("这是最后一页");
+            currentPage=pageTotal;
+        }else {
+            getPagCustomization();
+            totalpage.innerHTML=currentPage+"/"+pageTotal;
+        }
+    }
+    function prevPage() {
+        currentPage--;
+        if (currentPage<1) {
+            currentPage=1;
+            // alert("这是第一页");
+
+        }else {
+            getPagCustomization();
+            totalpage.innerHTML=currentPage+"/"+pageTotal;
+        }
+    }
+    
+    //查询
+    //系列
+    function queryData() {
+        myAjax("post","/queryData.do","",showCustomization);
+    }
+    function queryDataCB() {
+        myAjax("post","/queryDataCB.do","",showCustomization);
+    }
+    function queryDataMT() {
+        myAjax("post","/queryDataMT.do","",showCustomization);
+    }
+    /*材质*/
+    function queryMaterialES() {
+        myAjax("post","/queryMaterialES.do","",showCustomization);
+    }
+    function queryMaterialCB() {
+        myAjax("post","/queryMaterialCB.do","",showCustomization);
+    }
+    function queryMaterialMT() {
+        myAjax("post","/queryMaterialMT.do","",showCustomization);
+    }
+
+    //颜色
+    //白色
+    function queryColorBS() {
+        myAjax("post","/queryColorBS.do","",showCustomization);
+    }
+    //黑色
+    function queryColorHS() {
+        myAjax("post","/queryColorHS.do","",showCustomization);
+    }
+    //红色
+    function queryColorRed() {
+        myAjax("post","/queryColorRed.do","",showCustomization);
+    }
+    //绿色
+    function queryColorLS() {
+        myAjax("post","/queryColorLS.do","",showCustomization);
+    }
+    //蓝色
+    function queryColorNS() {
+        myAjax("post","/queryColorNS.do","",showCustomization);
+    }
+    //金色
+    function queryColorYS() {
+        myAjax("post","/queryColorYS.do","",showCustomization);
+    }
+    //青色
+    function queryColorQS() {
+        myAjax("post","/queryColorQS.do","",showCustomization);
+    }
+    //浅蓝
+    function queryColorQL() {
+        myAjax("post","/queryColorQL.do","",showCustomization);
+    }
+    //棕色
+    function queryColorZS() {
+        myAjax("post","/queryColorZS.do","",showCustomization);
+    }
+    //粉色
+    function queryColorFS() {
+        myAjax("post","/queryColorFS.do","",showCustomization);
+    }
+    //深蓝
+    function queryColorSL() {
+        myAjax("post","/queryColorSL.do","",showCustomization);
+    }
+    //海白
+    function queryColorHB() {
+        myAjax("post","/queryColorHB.do","",showCustomization);
+    }
+    //紫黑
+    function queryColorZH() {
+        myAjax("post","/queryColorZH.do","",showCustomization);
+    }
+
+    //尺码
+    function querySize_35() {
+        myAjax("post","/querySize_35.do","",showCustomization);
+    }
+    function querySize_36() {
+        myAjax("post","/querySize_36.do","",showCustomization);
+    }
+    function querySize_37() {
+        myAjax("post","/querySize_37.do","",showCustomization);
+    }
+    function querySize_38() {
+        myAjax("post","/querySize_38.do","",showCustomization);
+    }
+    function querySize_39() {
+        myAjax("post","/querySize_39.do","",showCustomization);
+    }
+    function querySize_40() {
+        myAjax("post","/querySize_40.do","",showCustomization);
+    }
+    function querySize_41() {
+        myAjax("post","/querySize_41.do","",showCustomization);
+    }
+    function querySize_42() {
+        myAjax("post","/querySize_42.do","",showCustomization);
+    }
+    function querySize_43() {
+        myAjax("post","/querySize_43.do","",showCustomization);
+    }
+    function querySize_44() {
+        myAjax("post","/querySize_44.do","",showCustomization);
+    }
+    function querySize_445() {
+        myAjax("post","/querySize_445.do","",showCustomization);
+    }
+    function querySize_45() {
+        myAjax("post","/querySize_45.do","",showCustomization);
+    }
+    function querySize_455() {
+        myAjax("post","/querySize_455.do","",showCustomization);
+    }
+    function querySize_46() {
+        myAjax("post","/querySize_46.do","",showCustomization);
+    }
+    function querySize_465() {
+        myAjax("post","/querySize_465.do","",showCustomization);
+    }
+    function querySize_47() {
+        myAjax("post","/querySize_47.do","",showCustomization);
+    }
+    function querySize_475() {
+        myAjax("post","/querySize_475.do","",showCustomization);
+    }
+    function querySize_48() {
+        myAjax("post","/querySize_48.do","",showCustomization);
+    }
+    function querySize_49() {
+        myAjax("post","/querySize_49.do","",showCustomization);
+
+    }
+    function querySize_50() {
+        myAjax("post","/querySize_50.do","",showCustomization);
+    }
+
+
+
+
+
+
+
+
+
+
+</script>
+</body>
+</html>

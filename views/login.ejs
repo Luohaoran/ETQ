@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Title</title>
+    <link rel="stylesheet" href="../bootstrap-3.3.5-dist/css/bootstrap.css">
+    <link rel="stylesheet" href="../css/yewei.css">
+    <!--[if lt IE 9]>
+    <script src="https://cdn.bootcss.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+    <script src="https://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+    <!--<![endif]&ndash;&gt;-->
+    <!--<link rel="stylesheet" href="..//css/header.css">-->
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/button.css">
+    <link rel="stylesheet" href="../css/nav.css">
+    <link rel="stylesheet" href="../css/login.css">
+    <link rel="stylesheet" href="../css/danxuan.css">
+</head>
+<body>
+<%-include('common/nav.ejs')%>
+<section class="kuangji">
+    <div class="leftmenu">
+        <p>&nbsp;&nbsp;我的账户</p>
+        <button class="link-1 xiahua">
+            <a href="/newuser" class="demo1">
+                <span style="margin-left: 100%">创建一个新用户</span>
+            </a>
+        </button>
+    </div>
+    <br>
+    <br>
+    <br>
+    <section id="zhucebiaodan">
+        <form class="chuangjian" action="/myLogin.do" method="post" id="user" > <!-- action="/myLogin.do" method="post"-->
+            <div id="chuangjian-1">
+                <p style="margin-left: 28px;font-size: 20px;margin-bottom: 80px">登陆</p>
+                <div>
+                    <p>用户名或邮箱地址*</p>
+                    <input type="text" class="input" name="username" id="name">
+                </div>
+                <div>
+                    <p>密码*</p>
+                    <input type="password" class="input" name="pwd"><span id="tishi">dddd</span>
+                </div>
+                <div class="chuangjianzhanghao jizhuzhanghao">
+                    <input type="checkbox"><span style="font-size: 16px">记住账号</span>
+                    <br>
+                    <br>
+                    <a href="/gaimi" class="xianWu" style="font-size: 16px">忘记密码</a>
+                </div>
+                <hr>
+                <div class="dibu">
+                    <div class="chuangjianzhanghao">
+                        <button type="submit">确认登陆</button>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </section>
+</section>
+<%-include('common/yewei.ejs')%>
+<!--<script src="../js/jquery-3.1.1.js"></script>-->
+<script src="../bootstrap-3.3.5-dist/js/jquery-1.11.3.js"></script>
+<script src="../bootstrap-3.3.5-dist/js/bootstrap.js"></script>
+<script src="../js/nav.js"></script>
+<script src="../js/yewei.js"></script>
+</body>
+</html>

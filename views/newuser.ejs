@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Title</title>
+    <link rel="stylesheet" href="../bootstrap-3.3.5-dist/css/bootstrap.css">
+
+    <!--[if lt IE 9]>
+    <script src="https://cdn.bootcss.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+    <script src="https://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+    <!--<![endif]&ndash;&gt;-->
+    <!--<link rel="stylesheet" href="..//css/header.css">-->
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/button.css">
+    <link rel="stylesheet" href="../css/nav.css">
+    <link rel="stylesheet" href="../css/newuser.css">
+    <link rel="stylesheet" href="../css/yewei.css">
+</head>
+<body>
+<%-include('common/nav.ejs')%>
+<div class="leftmenu">
+    <p>&nbsp;&nbsp;我的账户</p>
+    <button class="link-1 xiahua">
+        <a href="/login" class="demo1">
+            <span class="thin1">我已经有一个账户</span>
+        </a>
+    </button>
+</div>
+<br>
+<br>
+<br>
+<section id="zhucebiaodan">
+    <form class="chuangjian" action="/newuser.do" method="post">
+        <div>
+            <p style="margin-left: 28px;font-size: 20px">创建账号</p>
+            <div>
+                <p>姓名*</p>
+                <input type="text" class="input" name="username" id="name">
+            </div>
+            <div>
+                <p>手机号码*</p>
+                <input type="text" class="input" maxlength="11" id="phone" name="phone1" placeholder="只能输入数字,最大11位"/>
+            </div>
+            <div>
+                <p>电子邮件*</p>
+                <input type="email" class="input inputMailList" id="email" name="email" placeholder="请输入邮箱" required autofocus autocomplete="off">
+            </div>
+            <div class="nannv">
+                <p>性别*</p>
+                <input type="radio" class="sexdanxuan" name="sex" checked="checked" value="男"><span class="nan">男</span>
+                <input type="radio"  class="sexdanxuan" name="sex" value="女"><span class="nv">女</span>
+            </div>
+            <div>
+                <p>密码*</p>
+                <input type="password" class="input" id="test" name="pwd" placeholder="请输入8到16位数字与字母组合" onblur="checkPassword()">
+                <span id="tishi"></span>
+            </div>
+            <div>
+                <p>确认密码*</p>
+                <input type="password" class="input"  placeholder="请与前一次输入密码一致" id="jiancha" onblur="jiancha2()">
+                <span id="tishi2"></span>
+            </div>
+            <div class="chuangjianzhanghao">
+                <input type="checkbox"><span style="font-size: 16px" class="dianjidingyue">点击订阅</span>
+            </div>
+            <div class="chuangjianzhanghao">
+                <button type="submit" onclick="yanzheng()">创建账号</button>
+            </div>
+        </div>
+    </form>
+</section>
+<%-include('common/nav.ejs')%>
+<script src="../js/jquery-3.1.1.js"></script>
+<script src="../js/jquery.mailAutoComplete-4.0.js"></script>
+<script src="../js/nav.js"></script>
+<script type="text/javascript">
+    $(".inputMailList").mailAutoComplete();//使用方法
+    var pwdReg = /^(?![0-9]+$)(?![a-zA-Z]+$)[0-9A-Za-z]{8,16}$/;//8到16位数字与字母组合
+    function checkPassword(){
+        $("#tishi").html("")
+        var value = $('#test').val();
+        if(!pwdReg.test(value)){
+            $("#test").val("");
+            $("#tishi").html("请输入8到16位数字与字母组合")
+        }else{
+            $("#tishi").html("密码格式正确")
+        }
+    }
+    function jiancha2() {
+        var value = $('#jiancha').val();
+        console.log($("#test").val())
+        if (value!=$("#test").val()){
+            $("#tishi2").html("请与上一次输入密码一致")
+        }else {
+            $("#tishi2").html("正确")
+        }
+    }
+    function yanzheng() {
+        var a=$("#name").val();
+        var b=$("#phone").val();
+        var c=$("#email").val();
+        var d=$("#test").val();
+        var e=$("#jiancha").val();
+        if (a!=""&b!=""&c!=""&d!=""&e!="") {
+
+        }else {
+            alert("请填写所有信息")
+        }
+    }
+</script>
+</body>
+</html>

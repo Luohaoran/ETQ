@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Title</title>
+    <link rel="stylesheet" href="../bootstrap-3.3.5-dist/css/bootstrap.css">
+    <link rel="stylesheet" href="../css/button.css">
+    <link rel="stylesheet" href="../css/nav.css">
+    <link rel="stylesheet" href="../css/delete1.css">
+    <!--[if lt IE 9]>
+    <script src="https://cdn.bootcss.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+    <script src="https://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+    <!--<![endif]&ndash;&gt;-->
+</head>
+<body>
+<%-include('common/nav.ejs')%>
+<section id="nei">
+    <div><h1>购物车</h1></div>
+    <br>
+    <br>
+    <div id="nei1">
+        <a href="/newCollection?s=sex" class="xianWu"><span><</span> &nbsp;&nbsp;继续购物 </a>
+    </div>
+    <form id="form">
+        <table id="table">
+            <thead>
+            <tr>
+                <th width="25%">产品</th>
+                <th width="10%">颜色</th>
+                <th width="12%">尺寸</th>
+                <th width="18%">数量</th>
+                <th width="7%"></th>
+                <th width="8%">单价</th>
+                <th width="8%">总价</th>
+            </tr>
+            </thead>
+            <tbody id="ta">
+            </tbody>
+        </table>
+    </form>
+    <div class="fu"></div>
+    <div id="you">
+        <div class="zuo">
+            <input onclick="you()" type="checkbox" style="width: 20px;height: 20px"></input>
+            &nbsp; <span>我有优惠券代码</span>
+            <br><br>
+            <div class="fei">
+                <input class="qq"  placeholder="Coupon code">
+                <button type="button">应用</button>
+            </div>
+        </div>
+        <div class="mian">
+            <table id="fu" >
+                <!--<tr class="tr1">-->
+                    <!--<td class="da" height="60px"><input name="xuan" style="width: 20px;height: 20px" type="radio" checked="checked"><span>&nbsp;&nbsp; DPD / FedEx - 免费送货</span>-->
+                        <!--<br>-->
+                        <!--<input onclick="dan()" name="xuan" style="width: 20px;height: 20px" type="radio"><span>&nbsp;&nbsp; DPD / FedEx - 标准运费：</span>-->
+                    <!--</td>-->
+                    <!--<td>-->
+                        <!--<span class="qq">免费</span><br>-->
+                        <!--<span class="qq">￥15</span>-->
+                    <!--</td>-->
+                <!--</tr>-->
+                <!--<tr>-->
+                    <!--<td><span><br></span></td>-->
+                <!--</tr>-->
+            </table>
+            <table id="fuk">
+                <!--<tr>-->
+                    <!--<td colspan="2" class="xian"></td>-->
+                <!--</tr>-->
+                <!--<tr>-->
+                    <!--<td height="40px" width="80%">小计</td>-->
+                    <!--<td style="text-align: right" >￥ 429.75</td>-->
+                <!--</tr>-->
+                <!--<tr>-->
+                    <!--<td colspan="2" class="xian"></td>-->
+                <!--</tr>-->
+                <!--<tr>-->
+                    <!--<td height="40px">总</td>-->
+                    <!--<td style="text-align: right">￥ 429.75</td>-->
+                <!--</tr>-->
+                <!--<input type="text" class="shu">-->
+            </table>
+            <br><br>
+            <input onclick="dindan()" type="button" value="付款" class="cha" style="color: white" id="geiqian">
+            <!--<a href="/order1?myDataArr">asdfasf</a>-->
+        </div>
+    </div>
+    <span></span>
+</section>
+<%-include('common/yewei.ejs')%>
+<script src="../bootstrap-3.3.5-dist/js/jquery-1.11.3.js"></script>
+<script src="../bootstrap-3.3.5-dist/js/bootstrap.js"></script>
+<script src="../js/nav.js"></script>
+<script src="../js/delete.js"></script>
+<script>
+
+
+    window.onload=function () {
+        www();
+        // var d=document.getElementsByClassName("dingshangpin")
+        // console.log(d.length==1)
+        // if($(".dingshangpin").length==0){
+        //     $("#geiqian").css("color","gray")
+        // }else {
+        //     $("#geiqian").css("color","white")
+        // }
+    }
+
+    var map;
+    function www() {
+        $.ajax({
+            type: "post",
+            url: "/gouwu.do",
+            success: function (data) {
+                var tPrice=0;
+                // console.log(data)
+                document.getElementById("ta").innerHTML = ""
+                for (var i = 0; i < data.length; i++) {
+                    var num=data[i].count
+
+                              map=data[i].img
+                    document.getElementById("ta").innerHTML += "<tr class='dingshangpin'>\n" +
+                        "                <td>\n" +
+                        "                    <img id=\"tu\" src=\"" + data[i].pic_path + "\" alt=\"\">\n" +
+                        "                    &nbsp;&nbsp; &nbsp;&nbsp;<span id=\"name\">" + data[i].g_name + "</span></td>\n" +
+                        "                <td id=\"yanSe\">" + data[i].g_color + "</td>\n" +
+                        "                <td id=\"daXiao\">" + data[i].size_code + "</td>\n" +
+                        "                <td>\n" +
+                        "                <span class=\"jian\" onclick='xuan(this,1)'>"+"-"+"</span>\n" +
+                        "                <span class=\"shu\">"+num+"</span>\n" +
+                        "                <span class=\"jia\" onclick='xuan(this,2)'>"+"+"+"</span>\n" +
+                        "                </td>\n" +
+                        "                <td><a onclick='shang(this)' class=\"xianWu\">删除<span class='carID'>"+data[i].shop_ID+"</span></a></td>\n" +
+                        "                <td class=\"danJia\">￥" + data[i].total_price + "</td>\n" +
+                        "                <td class=\"zongJia\">￥" + data[i].total_price*num + "</td>\n" +
+                        "            </tr>"
+                    tPrice+=data[i].total_price*num
+                }
+
+                //邮寄
+                document.getElementById("fu").innerHTML ="<tr class=\"tr1\">\n" +
+                    "                    <td class=\"da\" height=\"60px\">" +
+                    "                        <input onclick=\"dd()\" name=\"xuan\" style=\"width: 20px;height: 20px\" type=\"radio\" checked=\"checked\"><span>&nbsp;&nbsp; DPD / FedEx - 免费送货</span>\n" +
+                    "                        <br>\n" +
+                    "                    </td>\n" +
+                    "                    <td style=\"text-align: right\" >\n" +
+                    "                        <span  class=\"qq\" >免费</span><br>\n" +
+                    "                    </td>\n" +
+                    "                </tr>\n" +
+                    "                <tr>\n" +
+                    "                    <td><span><br></span></td>\n" +
+                    "                </tr>"
+                // 总计
+                document.getElementById("fuk").innerHTML ="<tr>\n" +
+                    "                    <td colspan=\"2\" class=\"xian\"></td>\n" +
+                    "                </tr>\n" +
+                    "                <tr>\n" +
+                    "                    <td height=\"40px\" width=\"80%\">小计</td>\n" +
+                    "                    <td id=\"xiaoJ\" style=\"text-align: right\" >￥" + tPrice + "</td>\n" +
+                    "                </tr>\n" +
+                    "                <tr>\n" +
+                    "                    <td colspan=\"2\" class=\"xian\"></td>\n" +
+                    "                </tr>\n" +
+                    "                <tr>\n" +
+                    "                    <td height=\"40px\">总</td>\n" +
+                    "                    <td id=\"zongJia\" style=\"text-align: right\">￥" + tPrice + "</td>\n" +
+                    "                </tr>"
+            }
+        })
+    }
+
+    function xuan(b,a) {//b是this
+        var zong=document.getElementById("zongJia")
+        var xiao=document.getElementById("xiaoJ")
+        if(a==1){
+            if(b.nextSibling.nextSibling.innerHTML<=1){
+
+            }else{
+                var p=b.parentNode.nextSibling.nextSibling.nextSibling.nextSibling
+                var q=b.parentNode.nextSibling.nextSibling.nextSibling.nextSibling.nextSibling.nextSibling
+                b.nextSibling.nextSibling.innerHTML-=1
+                q.innerHTML="￥"+parseInt(p.innerHTML.replace("￥",""))*parseInt(b.nextSibling.nextSibling.innerHTML.replace("￥",""))
+                zong.innerHTML=parseInt(zong.innerHTML.replace("￥",""))-parseInt(p.innerHTML.replace("￥",""))
+                xiao.innerHTML=parseInt(xiao.innerHTML.replace("￥",""))-parseInt(p.innerHTML.replace("￥",""))
+            }
+        }else{
+            var p=b.parentNode.nextSibling.nextSibling.nextSibling.nextSibling
+            var q=b.parentNode.nextSibling.nextSibling.nextSibling.nextSibling.nextSibling.nextSibling
+            b.previousSibling.previousSibling.innerHTML=parseInt(b.previousSibling.previousSibling.innerHTML)+1
+            q.innerHTML="￥"+parseInt(p.innerHTML.replace("￥",""))*parseInt(b.previousSibling.previousSibling.innerHTML.replace("￥",""))
+            zong.innerHTML=parseInt(zong.innerHTML.replace("￥",""))+parseInt(p.innerHTML.replace("￥",""))
+            xiao.innerHTML=parseInt(xiao.innerHTML.replace("￥",""))+parseInt(p.innerHTML.replace("￥",""))
+        }
+    }
+
+    function shang(a) {
+        var carid=a.childNodes[1].innerHTML
+        // console.log(a.parentNode.parentNode.innerHTML)
+        $.ajax({
+            type: "get",
+            url: "/shanchu1.do",
+            data: {//传参
+                id:carid
+            },
+            success: function (data) {
+                a.parentNode.parentNode.innerHTML=""
+            }
+        })
+    }
+
+function dindan() {
+        if($("#geiqian")[0].style.color=="gray"){
+
+        }else{
+            /**
+             *
+             * 获取当前时间
+             */
+            function getNow(s) {
+                return s < 10 ? '0' + s: s;
+            }
+
+            var myDate = new Date();
+            //获取当前年
+            var year=myDate.getFullYear();
+            //获取当前月
+            var month=myDate.getMonth()+1;
+            //获取当前日
+            var date=myDate.getDate();
+            var h=myDate.getHours();       //获取当前小时数(0-23)
+            var m=myDate.getMinutes();     //获取当前分钟数(0-59)
+            var s=myDate.getSeconds();
+            var now=year+'-'+getNow(month)+"-"+getNow(date)+" "+getNow(h)+':'+getNow(m)+":"+getNow(s);
+            var random=String(year)+month+String(date)+String(h)+String(m)+String(s)
+            // 图片路径
+            var iA=[];
+            var nA=[];
+            var cA=[];
+            var sA=[];
+            var coA=[];
+            var pA=[];
+            var tA=[];
+            for(var i=0;i<$(".dingshangpin").length;i++){
+                var img=$(".dingshangpin")[i].childNodes[1].childNodes[1].src.split("/")
+                var imgsrc=img[img.length-3]+"/"+img[img.length-2]+"/"+img[img.length-1]
+                var name=$(".dingshangpin")[i].childNodes[1].childNodes[3].innerHTML
+                var color=$(".dingshangpin")[i].childNodes[3].innerHTML
+                var size=$(".dingshangpin")[i].childNodes[5].innerHTML
+                var count=$(".dingshangpin")[i].childNodes[7].childNodes[3].innerHTML
+                var price=$(".dingshangpin")[i].childNodes[11].innerHTML.replace("￥","")
+                var totalprice=$(".dingshangpin")[i].childNodes[13].innerHTML.replace("￥","")
+                iA.push(imgsrc)
+                nA.push(name)
+                cA.push(color)
+                sA.push(size)
+                coA.push(count)
+                pA.push(price)
+                tA.push(totalprice)
+            }
+            // 上传到订单
+            $.ajax({
+                type: "post",
+                url: "/dindan.do",
+                data: {
+                    imgsrc:iA,
+                    name:nA,
+                    color:cA,
+                    size:sA,
+                    count:coA,
+                    price:pA,
+                    totalprice:tA,
+                    shijian:now,
+                    din:random
+                },
+                traditional:true,
+                success:function (data) {
+                    console.log(data)
+                    // $(window).attr('location','/dingdan.do?id='+data[0].user_id);
+                }
+            })
+
+            // 清空购物车
+            var carid=document.getElementsByClassName("carID")
+            var caridArr=[]
+            for(var i=0;i<carid.length;i++){
+                caridArr.push(carid[i].innerHTML)
+            }
+            console.log(carid)
+            $.ajax({
+                type: "get",
+                url: "/qingkong.do",
+                data:{
+                    carid:caridArr
+                },
+                success: function (data) {
+
+                }
+            })
+            $(".dingshangpin").parent().html("")
+        }
+
+    }
+
+</script>
+</body>
+</html>

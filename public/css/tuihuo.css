@@ -1,0 +1,256 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+#back1{
+    background-image: url("../img/meimei3.png");
+    height: 250px;
+}
+#free{
+    width: 412px;
+    height: 40px;
+    /*background-color: white;*/
+    /*opacity: .1;*/
+    color: black;
+    position: absolute;
+    margin-top: 88px;
+    margin-left: 50%;
+    left:-206px;
+
+}
+#free input{
+    font-size: 10px;
+    background-color: rgba(255, 255, 255, 0.3);
+    width: 100%;
+    display: inline-block;
+    text-align: center;
+    line-height: 100%;
+    position: relative;
+    height: 100%;
+    border: none;
+    outline: none;
+    transition: all .5s linear;
+
+}
+#color{
+    color: black;  position: absolute;
+    left:86.7%;
+    z-index: 9999;
+    height: 20px;
+    width: 40px;
+    top: 10px;
+    transform: rotateY(180deg);
+}
+#jian{
+    font-size: 5px;
+    color: black;
+    font-weight: bolder;
+    margin-left: 3%; transition: all .83s;
+}
+#jian1{
+    font-size: 5px;
+    color: black;
+    font-weight: bolder;
+    margin-left: 3%;
+    display: none;
+}
+#hour123:hover #jian{
+    display: none;
+}
+#hour123:hover #jian1{
+    display: inline-block;
+}
+#return{
+    font-size: 13px;
+    color: #303030;
+    margin-left: 0.4%;
+}
+#song1{
+    margin-left: 17%;
+    color: #303030;
+    position: absolute;
+    margin-top: -23px;
+    font-size: 15px;
+}
+#kou1{
+    margin-left: 17%;
+    font-size: 14px;
+    color: #303030;
+    position: absolute;
+    margin-top: 22px;
+}
+#kou2{
+    margin-left: 17%;
+    font-size: 13px;
+    color: #303030;
+    position: absolute;
+    margin-top: 43.5px;
+}
+#q{
+    margin-left: 17%;
+    font-size: 13px;
+    color: #303030;
+    position: absolute;
+    margin-top: 80px;
+}
+#q1{
+    margin-left: 17%;
+    font-size: 13px;
+    color: #303030;
+    position: absolute;
+    margin-top:102px;
+}
+#q2{
+    margin-left: 17%;
+    font-size: 13px;
+    color: #303030;
+    position: absolute;
+    margin-top:122px;
+}
+#w{
+    margin-left: 17%;
+    font-size: 13px;
+    color: #303030;
+    position: absolute;
+    margin-top: 156px;
+}
+#w1 {
+    margin-left: 17%;
+    font-size: 13px;
+    color: #303030;
+    position: absolute;
+    margin-top: 175px;
+}
+#e{
+    margin-left: 17%;
+    font-size: 13px;
+    color: #303030;
+    position: absolute;
+    margin-top: 205px;
+}
+#e1{
+    margin-left: 17%;
+    font-size: 13px;
+    color: #303030;
+    position: absolute;
+    margin-top: 225px;
+}
+#e2{
+    margin-left: 17%;
+    font-size: 12px;
+    color: #303030;
+    position: absolute;
+    margin-top: 245px;
+}
+#r{
+    margin-left: 17%;
+    font-size: 13px;
+    color: #303030;
+    position: absolute;
+    margin-top: 280px;
+}
+#r1{
+    margin-left: 17%;
+    font-size: 13px;
+    color: #303030;
+    position: absolute;
+    margin-top: 320px;
+}
+#r2{
+    margin-left: 17%;
+    font-size: 13px;
+    color: #303030;
+    position: absolute;
+    margin-top: 370px;
+}
+#r3{
+    margin-left: 17%;
+    font-size: 13px;
+    color: #303030;
+    position: absolute;
+    margin-top: 405px;
+}
+#r4{
+    margin-left: 17%;
+    font-size: 13px;
+    color: #303030;
+    position: absolute;
+    margin-top: 430px;
+}
+#r5{
+    margin-left: 17%;
+    font-size: 13px;
+    color: #303030;
+    position: absolute;
+    margin-top: 455px;
+}
+#r33{
+    margin-left: 17%;
+    font-size: 13px;
+    color: #303030;
+    position: absolute;
+    margin-top: 490px;
+    font-weight: bold;
+}
+#r7{
+    margin-left: 17%;
+    font-size: 13px;
+    color: #303030;
+    position: absolute;
+    margin-top: 530px;
+}
+#r8{
+    margin-left: 17%;
+    font-size: 13px;
+    color: #303030;
+    position: absolute;
+    margin-top: 550px;
+}
+#r9{
+    margin-left: 17%;
+    font-size: 13px;
+    color: #303030;
+    position: absolute;
+    margin-top: 570px;
+}
+#r333{
+    margin-left: 17%;
+    font-size: 13px;
+    color: #303030;
+    position: absolute;
+    margin-top: 640px;
+    font-weight: bold;
+}
+#r77{
+    margin-left: 17%;
+    font-size: 13px;
+    color: #303030;
+    position: absolute;
+    margin-top: 680px;
+}
+#r88{
+    margin-left: 17%;
+    font-size: 13px;
+    color: #303030;
+    position: absolute;
+    margin-top: 700px;
+}
+#r99{
+    margin-left: 17%;
+    font-size: 13px;
+    color: #303030;
+    position: absolute;
+    margin-top: 740px;
+ }
+a{
+    text-decoration: none;
+    color: black;
+}
+.clear{
+    clear: both;
+}
+#second1{
+    margin-top: 270px;
+    position: relative;
+    height: 800px;
+}

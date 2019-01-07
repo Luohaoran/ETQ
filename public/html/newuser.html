@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>创建账号</title>
+    <link rel="stylesheet" href="../css/newuser.css">
+    <link rel="stylesheet" href="../css/button.css">
+    <link rel="stylesheet" href="../css/danxuan.css">
+</head>
+<body>
+<div class="leftmenu">
+    <p>我的账户</p>
+    <button class="link-1 xiahua">
+        <a href="login.html" class="demo1">
+            <span class="thin1">我已经有一个账户</span>
+        </a>
+    </button>
+</div>
+<br>
+<br>
+<br>
+<section id="zhucebiaodan">
+    <form class="chuangjian" action="/newuser.do" method="post">
+        <div>
+            <p style="margin-left: 28px;font-size: 20px">创建账号</p>
+            <div>
+                <p>名字*</p>
+                <input type="text" class="input" name="username">
+            </div>
+            <div>
+                <p>姓*</p>
+                <input type="text" class="input">
+            </div>
+            <div>
+                <p>电子邮件*</p>
+                <input type="text" class="input" name="email">
+            </div>
+            <div class="nannv">
+                <p>性别*</p>
+                <input type="radio" class="sexdanxuan" name="sex" checked="checked" value="男"><span class="nan">男</span>
+                <input type="radio"  class="sexdanxuan" name="sex" value="女"><span class="nv">女</span>
+            </div>
+            <div>
+                <p>密码*</p>
+                <input type="text" class="input" name="pwd">
+            </div>
+            <div>
+                <p>确认密码*</p>
+                <input type="text" class="input">
+            </div>
+            <div class="chuangjianzhanghao">
+                <input type="checkbox"><span style="font-size: 16px" class="dianjidingyue">点击订阅</span>
+            </div>
+            <div class="chuangjianzhanghao">
+                <button type="submit">创建账号</button>
+            </div>
+        </div>
+    </form>
+</section>
+</body>
+</html>

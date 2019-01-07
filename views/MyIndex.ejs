@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Title</title>
+    <link rel="stylesheet" href="../bootstrap-3.3.5-dist/css/bootstrap.css">
+    <link rel="stylesheet" href="../css/button.css">
+    <link rel="stylesheet" href="../css/nav.css">
+    <link rel="stylesheet" href="../css/MyIndex.css">
+    <link rel="stylesheet" href="../css/yewei.css">
+    <!--[if lt IE 9]>
+    <script src="https://cdn.bootcss.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+    <script src="https://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+    <!--<![endif]&ndash;&gt;-->
+</head>
+<body>
+<%-include('common/nav.ejs')%>
+<section id="body123">
+    <div class="myDivLeft">
+        <div class="myDivLeft_1">
+            <h1>我的账户</h1>
+        </div>
+        <div class="myDivLeft_2">
+            <p>联系信息</p>
+            <p><a href="#dingding">订单</a></p>
+            <p><a href="/esc">登出</a></p>
+        </div>
+    </div>
+    <div class="myDivRight">
+        <div class="myDivRight_1">
+            <h1>欢迎:     <span id="huanying"><%=username%></span></h1>
+            <P>在这里，您可以跟踪您最近的活动，请求您收到的订单的退货/换货授权，<br>以及查看和编辑您的帐户信息或收藏项目列表。</P>
+            <a href="#">联系</a>
+        </div>
+        <div class="myDivRight_2">
+            <h1>联系信息</h1>
+            <div class="divP">
+                <p>姓名: <span id="myname"></span></p>
+                <p>邮箱: <span id="myemail"></span></p>
+                <p>电话: <span id="myphone"></span></p>
+            </div>
+            <a href="/MyindexBJ" class="xianWu">编辑信息</a><br>
+            <a href="/MyindexBJ" class="xianWu">更改密码</a>
+        </div>
+        <hr>
+        <div class="myDivRight_1" id="myDivRight_1">
+            <h1>收货地址</h1>
+            <!--<div id="dizhilan">-->
+                <!--<span id="name"></span>-->
+                <!--<span id="didi">滴滴</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-->
+                <!--<span id="jiedao"></span>-->
+                <!--<a href="" class="xianWu caozuo" onclick="bianji(this)" id="bianji">编辑</a>-->
+                <!--<a href="" class="xianWu caozuo" onclick="shanchu(this)" id="shanchu">删除</a>-->
+            <!--</div>-->
+        </div>
+        <div class="myDivRight_2">
+            <!--<h1></h1>-->
+            <!--<div class="divP">-->
+                <!--<p>收件地址</p>-->
+                <!--<br>-->
+                <!--<span id="shoujian"></span>-->
+            <!--</div>-->
+            <a href="/MyindexBJDZ" class="xianWu" style="font-size: 20px">添加地址</a><br>
+        </div>
+        <hr>
+        <div class="myDivRight_1 dingdan" id="dingding">
+            <h1>订单</h1>
+             <div id="dingdan">
+                 <span id="dingdanhao">订单号</span>
+                 <span id="danjia">订单总价</span>
+                 <span id="xiadan">下单时间</span>
+                 <span id="shoujian">收货地址</span>
+                 <span id="shouren">收件人</span>
+                 <span id="zhuangtai">订单状态</span>
+             </div>
+
+        </div>
+        <!--<div class="myDivRight_1">-->
+        <!--</div>-->
+    </div>
+</section>
+<%-include('common/yewei.ejs')%>
+<!--<script src="../js/yewei.js"></script>-->
+<script src="../bootstrap-3.3.5-dist/js/jquery-1.11.3.js"></script>
+<script src="../bootstrap-3.3.5-dist/js/bootstrap.js"></script>
+<script src="../js/nav.js"></script>
+<script>
+    $(function () {
+        $.ajax({
+            type:"get",
+            url:"/geren.do",
+            data:$("#name").text(),
+            async:true,
+            success:function (data) {
+                // console.log(data[0])
+                $("#myname").html(data[0].user_name);
+                $("#myemail").html(data[0].user_mail);
+                $("#myphone").html(data[0].user_phone);
+            }
+        });
+        $.ajax({
+            type:"get",
+            url:"/gerendizhi.do",
+            async:false,
+            success:function (data) {
+                // console.log(data);
+                // $("#didi").html(data[0].address);
+                // console.log(data.length);
+                for (var i=0;i<data.length;i++){
+                  // console.log(i);
+                   document.getElementById("myDivRight_1").innerHTML+=" <div id=\"dizhilan\">\n" +
+                       "                <span id=\"name\" class=\'didi\'>"+data[i].add_name+"</span>\n" +
+                       "                <span id=\"didi\" class='didi'>"+data[i].address+"</span>\n" +
+                       "                <span id=\"jiedao\" class='didi2'>"+data[i].add_type+"</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;\n" +
+                       "                <a  class=\"xianWu caozuo\" onclick=\"bianji(this)\" id=\"bianji\">编辑</a>\n" +
+                       "                <a  class=\"xianWu caozuo\" onclick=\"shanchu(this)\" id=\"shanchu\">删除</a>\n" +
+                       "            </div>"
+                }
+            }
+        })
+        $.ajax({
+            type:"get",
+            url:"/dingdan.do",
+            async:true,
+            data:{id:$("#user_id").text()},
+            success:function (data) {
+                // console.log(data);
+                for (i=0;i<data.length;i++){
+                $("#dingding")[0].innerHTML+=" <div id=\"dingdan\" onclick='dingxiang(this)' style='cursor: pointer;'>\n" +
+                    "                <span id=\"dingdanhao\">"+data[i].a+" </span>\n" +
+                    // "                <span id=\"bianhao\">"+data[i].name+"</span>\n" +
+                    // "                <span id=\"yanse\">"+data[i].yanSe+" </span>\n" +
+                    // "                <span id=\"chima\"> "+data[i].daXiao+"</span>\n" +
+                    // "                <span id=\"shuliang\"> "+data[i].shu+"</span>\n" +
+                    "                <span id=\"danjia\">"+data[i].zongJia+" </span>\n" +
+                    "                <span id=\"xiadan\">"+data[i].shiJian+" </span>\n" +
+                    "                <span id=\"shoujian\"> "+$("#didi").text()+"</span>\n" +
+                    "                <span id=\"shouren\"> "+$("#name").text()+"收"+"</span>\n" +
+                    "                <span id=\"zhuangtai\"> "+data[i].os_id+"</span>\n" +
+                    "            </div>"
+            }}
+        })
+
+    })
+    function dingxiang(a) {
+        var dindan=a.childNodes[1].innerHTML
+        $.ajax({
+            type:"get",
+            url:"/dingxiang.do",
+            async:true,
+            data:{
+                dingdanhao:dindan
+            },
+            success:function (data) {
+                // console.log(data)
+                $("#body123")[0].innerHTML+="    <div id=dingxiang1>\n" +
+                    "                <span id=dingxiangS>"+"订单详情"+"</span>\n" +
+                    "                <span id=guanding onclick='guanding()'>X</span>\n" +
+                    "        <form id=\"form\">\n" +
+                    "            <table id=\"table\" style='width: 95%'>\n" +
+                    "                <thead>\n" +
+                    "                <tr style='height: 50px'>\n" +
+                    "                    <th width=\"25%\">产品名称</th>\n" +
+                    "                    <th width=\"10%\">颜色</th>\n" +
+                    "                    <th width=\"12%\">尺寸</th>\n" +
+                    "                    <th width=\"18%\">数量</th>\n" +
+                    "                    <th width=\"7%\"></th>\n" +
+                    "                    <th width=\"8%\">单价</th>\n" +
+                    "                    <th width=\"8%\">总价</th>\n" +
+                    // "                    <th width=\"5%\"></th>\n" +
+                    "                </tr>\n" +
+                    "                </thead>\n" +
+                    "                <tbody id=\"ta\">\n" +
+                    "                </tbody>\n" +
+                    "            </table>\n" +
+                    "        </form>\n" +
+                    "    </div>"
+                var heji=0
+                for (var i=0;i<data.length;i++){
+                    document.getElementById("ta").innerHTML += "<tr class='dingshangpin'>\n" +
+                        "                <td>\n" +
+                        "                    <img id=\"tu\" src=\"" + data[i].img + "\" alt=\"\">\n" +
+                        "                    &nbsp;&nbsp; &nbsp;&nbsp;<span id=\"name\">" + data[i].name + "</span></td>\n" +
+                        "                <td id=\"yanSe\">" + data[i].yanSe + "</td>\n" +
+                        "                <td id=\"daXiao\">" + data[i].daXiao + "</td>\n" +
+                        "                <td>\n" +
+                        // "                <span class=\"jian\" >"+"-"+"</span>\n" +
+                        "                <span class=\"shu\">"+data[i].shu+"</span>\n" +
+                        "                    <th width=\"7%\"></th>\n" +
+                        // "                <span class=\"jia\" >"+"+"+"</span>\n" +
+                        "                </td>\n" +
+                        // "                <td><a onclick='shang(this)' class=\"xianWu\">删除<span class='carID'>"+data[i].shop_ID+"</span></a></td>\n" +
+                        "                <td class=\"danJia\" >￥" + data[i].danJia + "</td>\n" +
+                        "                <td class=\"zongJia\">￥" + data[i].zongJia + "</td>\n" +
+                        "            </tr>"
+                    heji+=parseInt(data[i].zongJia)
+                }
+
+                document.getElementById("ta").innerHTML += "<tr>\n" +
+                    "                <tr>\n" +
+                    "                    <td height=\"40px\" style='text-align: right'>合计付款：</td>\n" +
+                    "                    <td id=\"zongJia\" style='text-align: left'>￥" + heji + "</td>\n" +
+                    "                </tr>"
+                "            </tr>"
+            }
+        })
+    }
+    function bianji(a) {
+        var b=$(a).prev().prev().text();
+        $(window).attr('location','/xiugaidizhi.do?dizhi='+b);
+    }
+    function shanchu(a) {
+        var c=$(a).prev().prev().prev().text();
+        $(window).attr('location','/shanchu.do?dizhi='+c);
+    }
+    function guanding() {
+        var dingxiang=document.getElementById("dingxiang1")
+        var body123=document.getElementById("body123")
+        // console.log(dingxiang+body123)
+        // $("div").remove($("#dingxiang"))
+        body123.removeChild(dingxiang)
+    }
+</script>
+</body>
+</html>

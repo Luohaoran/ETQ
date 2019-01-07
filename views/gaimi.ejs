@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Title</title>
+    <link rel="stylesheet" href="../bootstrap-3.3.5-dist/css/bootstrap.css">
+    <link rel="stylesheet" href="../css/button.css">
+    <link rel="stylesheet" href="../css/nav.css">
+    <link rel="stylesheet" href="../css/gaimi.css">
+    <link rel="stylesheet" href="../css/yewei.css">
+    <!--[if lt IE 9]>
+    <script src="https://cdn.bootcss.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+    <script src="https://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+    <!--<![endif]&ndash;&gt;-->
+</head>
+<body>
+<%-include('common/nav.ejs')%>
+<section class="gaimi">
+    <div class="myDivLeft">
+        <div class="myDivLeft_1">
+            <h1>我的账户</h1>
+        </div>
+        <div class="myDivLeft_2">
+            <p>创建一个账户</p>
+        </div>
+    </div>
+    <div class="myDivRight">
+        <div class="myDivRight_1" style="width: 60%" >
+            <h1 style="font-size: 30px">忘记密码</h1>
+
+            <P style="font-size: 16px">忘记密码？请输入您手机号码。您将收到验证码并且用于重置密码。</P>
+            <br>
+            <input type="text" placeholder="请输入您的手机号" class="input" id="phone">
+            <button class="fasong" onclick="sendCode()">发送验证码</button>
+            <span id="sendMsg"></span>
+            <input type="text" id="code">请输入验证码
+            <button id="code1" onclick="verifyCode()">验证</button>
+            <span id="verifyMsg"></span>
+        </div>
+        <div id="gaimi">
+            <input type="password" placeholder="请输入新密码" class="input" id="pwd">
+            <button id="yes" class="fasong" onclick="wangji()">确认</button>
+        </div>
+    </div>
+</section>
+<%-include('common/yewei.ejs')%>
+<!--<script src="../js/yewei.js"></script>-->
+<script src="../bootstrap-3.3.5-dist/js/jquery-1.11.3.js"></script>
+<script src="../bootstrap-3.3.5-dist/js/bootstrap.js"></script>
+<script src="../js/nav.js"></script>
+<script>
+    function wangji() {
+        $.ajax({
+            type:"post",
+            url:"/wangji.do",
+            data:{phone:$("#phone").val(),pwd:$("#pwd").val()},
+            success:function (data) {
+                if (data.status == '1'){
+                    console.log(data);
+                   window.location.href = '/login';
+                }
+            }
+        })
+    }
+    function sendCode() {
+        $.ajax({
+            url:"snedCode.do",
+            type:"post",
+            data:{
+                phone:$("#phone").val()
+            },
+            success:function () {
+                $("#sendMsg").html(data);
+            }
+        })
+    }
+    function verifyCode() {
+        $.ajax({
+            url:"/verifyCode.do",
+            type:"post",
+            data:{
+                phone:$("#phone").val(),
+                code:$("#code").val()
+            },
+            success:function (data) {
+                $("#verifyMsg").html(data);
+                if (data){
+                    $("#gaimi").css({
+                        "display":"unset",
+                    })
+                }
+            }
+        })
+    }
+</script>
+</body>
+</html>

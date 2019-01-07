@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Title</title>
+    <link rel="stylesheet" href="../bootstrap-3.3.5-dist/css/bootstrap.css">
+    <link rel="stylesheet" href="../css/button.css">
+    <link rel="stylesheet" href="../css/nav.css">
+    <link rel="stylesheet" href="../css/MyIndex.css">
+    <link rel="stylesheet" href="../css/yewei.css">
+    <!--[if lt IE 9]>
+    <script src="https://cdn.bootcss.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+    <script src="https://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+    <!--<![endif]&ndash;&gt;-->
+</head>
+<body>
+<input type="text" value="aaaa">
+<script src="../bootstrap-3.3.5-dist/js/jquery-1.11.3.js"></script>
+<script src="../bootstrap-3.3.5-dist/js/bootstrap.js"></script>
+<script src="../js/nav.js"></script>
+<script>
+    function sendCode() {
+        $.ajax({
+            url:"snedCode.do",
+            type:"post",
+            data:{
+                phone:$("#phone").val()
+            },
+            success:function () {
+                $("#sendMsg").html(data);
+            }
+        })
+    }
+    function verifyCode() {
+        $.ajax({
+            url:"/verifyCode.do",
+            type:"post",
+            data:{
+                phone:$("#phone").val(),
+                code:$("#code").val()
+            },
+            success:function (data) {
+                $("#verifyMsg").html(data);
+                if (data){
+                    $("#gaimi").css({
+                        "display":"unset",
+                    })
+                }
+            }
+        })
+    }
+</script>
+</body>
+</html>

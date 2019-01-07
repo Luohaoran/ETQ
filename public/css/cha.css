@@ -1,0 +1,277 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+#back1{
+    background-image: url("../img/meimei3.png");
+    height: 250px;
+}
+#free{
+    width: 412px;
+    height: 40px;
+    /*background-color: white;*/
+    /*opacity: .1;*/
+    color: black;
+    position: absolute;
+    margin-top: 88px;
+    margin-left: 50%;
+    left:-206px;
+
+}
+#free input{
+    font-size: 10px;
+    background-color: rgba(255, 255, 255, 0.3);
+    width: 100%;
+    display: inline-block;
+    text-align: center;
+    line-height: 100%;
+    position: relative;
+    height: 100%;
+    border: none;
+    outline: none;
+    transition: all .5s linear;
+
+}
+#color{
+    color: black;  position: absolute;
+    left:86.7%;
+    z-index: 9999;
+    height: 20px;
+    width: 40px;
+    top: 10px;
+    transform: rotateY(180deg);
+    cursor: pointer;
+}
+#jian{
+    font-size: 5px;
+    color: black;
+    font-weight: bolder;
+    margin-left: 3%; transition: all .83s;
+}
+#jian1{
+    font-size: 5px;
+    color: black;
+    font-weight: bolder;
+    margin-left: 3%;
+    display: none;
+}
+#hour123:hover #jian{
+    display: none;
+}
+#hour123:hover #jian1{
+    display: inline-block;
+}
+#return{
+    font-size: 13px;
+    color: #303030;
+    margin-left: 0.4%;
+}
+#song1{
+    margin-left: 17%;
+    color: #303030;
+    position: absolute;
+    margin-top: -23px;
+    font-size: 15px;
+}
+#e{
+    margin-left: 3.2%;
+    color: #303030;
+    position: absolute;
+    margin-top: 32px;
+    font-size: 12px;
+}
+#ou{
+    margin-left: 17%;
+    color: #303030;
+    position: absolute;
+    margin-top: 50px;
+    width: 10px;
+    font-size:13px ;
+}
+#ou1{
+    margin-left: 17%;
+    color: #303030;
+    position: absolute;
+    margin-top: 167px;
+    width: 10px;
+    font-size:13px ;
+}
+#ou2{
+    margin-left: 17%;
+    color: #303030;
+    position: absolute;
+    margin-top: 257px;
+    width: 10px;
+    font-size:13px ;
+}
+#ou3{
+    margin-left: 17%;
+    color: #303030;
+    position: absolute;
+    margin-top: 357px;
+    width: 10px;
+    font-size:13px ;
+}
+#ou4{
+    margin-left: 17%;
+    color: #303030;
+    position: absolute;
+    margin-top: 457px;
+    width: 10px;
+    font-size:13px ;
+}
+#ou5{
+    margin-left: 17%;
+    color: #303030;
+    position: absolute;
+    margin-top: 547px;
+    width: 10px;
+    font-size:13px ;
+}
+.span{
+    margin-left: 22%;
+    color: #303030;
+    position: absolute;
+    margin-top: 74px;
+    width: 1000px;
+    font-size:13px ;
+
+}
+.span1{
+    margin-left: 22%;
+    color: #303030;
+    position: absolute;
+    margin-top: 184px;
+    width: 1000px;
+    font-size:13px ;
+}
+.span2{
+    margin-left: 22%;
+    color: #303030;
+    position: absolute;
+    margin-top: 274px;
+    width: 1000px;
+    font-size:13px ;
+}
+.span3{
+    margin-left: 22%;
+    color: #303030;
+    position: absolute;
+    margin-top: 375px;
+    width: 1000px;
+    font-size:13px ;
+}
+.span4{
+    margin-left: 22%;
+    color: #303030;
+    position: absolute;
+    margin-top: 467px;
+    width: 1000px;
+    font-size:13px ;
+}
+.span5{
+    margin-left: 22%;
+    color: #303030;
+    position: absolute;
+    margin-top: 559px;
+    width: 1000px;
+    font-size:13px ;
+}
+.span span{
+    width:50px;
+    display: inline-block;
+    height:10px;
+font-weight: bold;
+}
+.span1 span{
+    width:50px;
+    display: inline-block;
+    height:10px;
+}
+.span2 span{
+    width:50px;
+    display: inline-block;
+    height:10px;
+}
+.span3 span{
+    width:50px;
+    display: inline-block;
+    height:10px;
+}
+.span4 span{
+    width:50px;
+    display: inline-block;
+    height:10px;
+}
+.span5 span{
+    width:50px;
+    display: inline-block;
+    height:10px;
+}
+#hr{
+    width: 51%;
+    margin-left: 16.6%;
+    color: #8A99A2;
+    opacity: .3;
+    position: absolute;
+    margin-top: 150px;
+}
+#hr1{
+    width: 51%;
+    margin-left: 16.6%;
+    color: #8A99A2;
+    opacity: .3;
+    position: absolute;
+    margin-top: 250px;
+}
+#hr2{
+    width: 51%;
+    margin-left: 16.6%;
+    color: #8A99A2;
+    opacity: .3;
+    position: absolute;
+    margin-top: 340px;
+}
+#hr3{
+    width: 51%;
+    margin-left: 16.6%;
+    color: #8A99A2;
+    opacity: .3;
+    position: absolute;
+    margin-top: 430px;
+}
+#hr4{
+    width: 51%;
+    margin-left: 16.6%;
+    color: #8A99A2;
+    opacity: .3;
+    position: absolute;
+    margin-top: 530px;
+}
+#hr5{
+    width: 51%;
+    margin-left: 16.6%;
+    color: #8A99A2;
+    opacity: .3;
+    position: absolute;
+    margin-top: 620px;
+}
+#third{
+/*margin-top: 500px;*/
+    margin-bottom: 500px;
+    margin-left:75%;
+    color: #303030;
+    position: relative;
+    margin-top: -98px;
+    font-size:13px ;
+}
+a{
+    text-decoration: none;
+    color: black;
+}
+#ddd{
+
+}
+.curou{
+    cursor: pointer;
+}

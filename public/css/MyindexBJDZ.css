@@ -1,0 +1,189 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+section{
+    margin-top: 100px;
+    width:100%;
+    height: 500px;
+}
+hr{
+    width: 50%;
+}
+.myDivLeft{
+    position: fixed;
+    width: 25%;
+    height: 500px;
+    float: left;
+}
+.myDivRight{
+    margin-left: 500px;
+    width: 75%;
+    height: 500px;
+    float: left;
+}
+.myDivRight_GG{
+    width: 100%;
+    height: 580px;
+}
+.myDivRight_GG h1{
+    font-size: 18px;
+    font-weight: normal;
+}
+.myDivRight_GG_1{
+    height: 500px;
+    width: 90%;
+    margin-top: 3%;
+}
+.myDivRight_GG_1 p{
+    width: 50%;
+    font-size: 14px;
+}
+
+.input{
+    float: left;
+    width: 40%;
+    margin-right: 40px;
+    margin-bottom: 40px;
+}
+.input input{
+    width: 100%;
+    height: 50px;
+}
+.liandong{
+    float: left;
+}
+.button button{
+    margin-top: 30px;
+    border: none;
+    width: 150px;
+    height: 50px;
+    transition: all .3s linear;
+}
+.button button:hover{
+    background: black;
+    color: white;
+}
+.ximmima{
+    margin-left: 45%;
+}
+/*#myDivRight_YC{*/
+/*display: none;*/
+/*!*background-color: #0B85CC;*!*/
+/*!*color: #336633;*!*/
+
+/*}*/
+.myDivRight_Btu{
+    background-color: black;
+    width: 160px;
+    height: 50px;
+    color: white;
+    text-align: center;
+    line-height: 50px;
+    /*margin-top: 10%;*/
+    margin-left: 73%;
+
+}
+
+
+
+.myDivRight_1{
+    width: 40%;
+    height: 320px;
+    /*background-color: #faa937;*/
+    float: left;
+}
+.myDivRight_2{
+    width: 60%;
+    height: 320px;
+    /*background-color: #0B85CC;*/
+    float: left;
+}
+.myDivLeft_1{
+    margin-left: 10%;
+}
+.myDivLeft_1 h1{
+    font-size: 18px;
+    font-weight: normal;
+}
+.myDivLeft_2{
+    margin-top: 10%;
+    margin-left: 10%;
+}
+.myDivLeft_2 a{
+    font-size: 14px;
+    cursor: pointer;
+    color: black;
+    text-decoration: none;
+}
+.myDivRight_1 h1{
+    font-size: 18px;
+    font-weight: normal;
+}
+.myDivRight_1 p{
+    margin-top: 9%;
+    margin-bottom: 5%;
+    font-size: 14px;
+}
+.myDivRight_1 a{
+    font-size: 14px;
+    color: black;
+}
+a:hover{
+    text-decoration: none;
+}
+.myDivRight_2 h1{
+    font-size: 18px;
+    font-weight: normal;
+    margin-bottom: 6%;
+}
+.myDivRight_2 p{
+    font-size: 14px;
+
+}
+.divP{
+    margin-bottom: 3.5%;
+}
+.myDivRight_2 a{
+    font-size: 14px;
+    color: black;
+}
+
+.xianWu{
+    color: black;
+    position: relative;
+    padding-bottom: 2px;
+    cursor: pointer;
+    text-decoration: none;
+    /*display: block;*/
+    vertical-align:middle;  /*//中间对齐*/
+    overflow:hidden;
+    line-height: 2;
+}
+.xianWu:before{
+    content: '';
+    position: absolute;
+    bottom: 1px;
+    left: 0;
+    width: 100%;
+    height: 1px;
+    background: #313131;
+    opacity: .6;
+    -webkit-transform: scaleX(0);
+    transform: scaleX(0);
+    -webkit-transform-origin: right;
+    transform-origin: right;
+    transition: -webkit-transform .9s cubic-bezier(.19,1,.22,1);
+    transition: transform .9s cubic-bezier(.19,1,.22,1);
+    transition: transform .9s cubic-bezier(.19,1,.22,1),-webkit-transform .9s cubic-bezier(.19,1,.22,1);
+}
+.xianWu:hover:before{
+    -webkit-transform: scaleX(1);
+    transform:scaleX(1);
+    -webkit-transform-origin: left;
+    transform-origin: left;
+}
+.container-fluid{
+    margin: 0;
+    padding: 0;
+}

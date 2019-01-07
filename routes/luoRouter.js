@@ -1,0 +1,228 @@
+const express=require("express");
+const path=require("path");
+const router=express.Router();//调用express对象提供的路由方法获取路由对象
+const userController=require("../controller/luoController");//用户控制
+const smsController=require("../controller/smsController");
+
+
+// router.post("/myLogin.do",userController.postUser);//登陆验证
+router.post("/denglu.do",userController.denglu);//登陆验证
+router.post("/newuser.do",userController.newUser);//添加用户
+router.get("/geren.do",userController.geren);//取得个人信息
+router.get("/gerendizhi.do",userController.gerendizhi);//获取个人地址
+// router.post("/bianji.do",userController.bianji);//编辑收件地址
+router.get("/xiugaidizhi.do",(req,resp)=>{
+    resp.render("xiugaidizhi",{dizhi:req.query.dizhi})
+});//编辑收件地址
+router.post("/dizhi2.do",userController.dizhi2);//修改地址
+router.post("/xiugai.do",userController.xiugai);
+router.get("/shanchu.do",userController.shanchu);
+router.get("/dingdan.do",userController.dingdan);
+router.get("/dingdan1.do",(req,resp)=>{
+    resp.render("MyIndex")
+});
+
+router.post("/dizhi.do",userController.dizhi);//添加地址
+router.post("/updata.do",userController.updata);//修改个人信息
+router.post("/jiance.do",userController.jiance);//检测密码是否正确
+router.post("/snedCode.do",smsController.sendCode);//短信验证
+router.post("/verifyCode.do",smsController.verifyCode);//短信验证
+router.post("/wangji.do",userController.wangji);
+router.get("/esc",(req,resp)=>{//退出用户
+    req.session.destroy();
+    resp.sendFile(path.join(__dirname,"../public/html","login.html"))
+});
+
+//a标签跳转
+router.get("/logo",(req,resp)=>{
+    if (req.session.username) {
+        resp.render("index")
+    }else {
+        resp.sendFile(path.join(__dirname,"../public/html","index.html"))
+    }
+});
+router.get("/gaimi",(req,resp)=>{
+    resp.render("gaimi")
+});
+router.get("/chima",(req,resp)=>{
+    resp.render("chima")
+});
+router.get("/login",(req,resp)=>{//判断是否登陆,没有登陆就跳转到登陆页  成功就到个人信息
+   if (req.session.username){
+       resp.render("Myindex")
+   } else {
+       resp.sendFile(path.join(__dirname,"../public/html","login.html"))
+   }
+});
+router.get("/delete",(req,resp)=>{
+    resp.render("delete")
+});
+router.get("/etq",(req,resp)=>{
+    resp.render("etq")
+});
+router.get("/index",(req,resp)=>{
+    if(req.session.username==undefined){
+        resp.render("index",{username:"我的账户",user_id:""})
+    }else{
+        resp.render("index",{username:req.session.username})
+    }
+
+});
+router.get("/information",(req,resp)=>{
+    resp.render("information")
+});
+router.get("/jiezhang",(req,resp)=>{
+    resp.render("jiezhang")
+});
+
+router.get("/MyIndex",(req,resp)=>{
+    resp.render("MyIndex")
+});
+router.get("/MyindexBJ",(req,resp)=>{
+    resp.render("MyindexBJ")
+});
+router.get("/MyindexBJDZ",(req,resp)=>{
+    resp.render("MyindexBJDZ")
+});
+router.get("/newCollection",(req,resp)=>{
+    resp.render("newCollection")
+});
+router.get("/newuser",(req,resp)=>{
+    resp.render("newuser")
+});
+router.get("/page1",(req,resp)=>{
+    resp.render("page1")
+});
+router.get("/page1-bk1-1",(req,resp)=>{
+    resp.render("page1-bk1-1")
+});
+router.get("/page1-bk1-2",(req,resp)=>{
+    resp.render("page1-bk1-2")
+});
+router.get("/page1-bk1-3",(req,resp)=>{
+    resp.render("page1-bk1-3")
+});
+router.get("/page1-bk2-1",(req,resp)=>{
+    resp.render("page1-bk2-1")
+});
+router.get("/page1-bk2-2",(req,resp)=>{
+    resp.render("page1-bk2-2")
+});
+router.get("/page1-bk2-3",(req,resp)=>{
+    resp.render("page1-bk2-3")
+});
+router.get("/page1-bk3-1",(req,resp)=>{
+    resp.render("page1-bk3-1")
+});
+router.get("/page1-bk3-2",(req,resp)=>{
+    resp.render("page1-bk3-2")
+});
+router.get("/page1-bk3-3",(req,resp)=>{
+    resp.render("page1-bk3-3")
+});
+router.get("/page1-bk4-1",(req,resp)=>{
+    resp.render("page1-bk4-1")
+});
+router.get("/page1-bk4-2",(req,resp)=>{
+    resp.render("page1-bk4-2")
+});
+router.get("/page1-bk4-3",(req,resp)=>{
+    resp.render("page1-bk4-3")
+});
+router.get("/page2",(req,resp)=>{
+    resp.render("page2")
+});
+router.get("/page2-bk1-1",(req,resp)=>{
+    resp.render("page2-bk1-1")
+});
+router.get("/page2-bk1-2",(req,resp)=>{
+    resp.render("page2-bk1-2")
+});
+router.get("/page2-bk1-3",(req,resp)=>{
+    resp.render("page2-bk1-3")
+});
+router.get("/page2-bk2-1",(req,resp)=>{
+    resp.render("page2-bk2-1")
+});
+router.get("/page2-bk2-2",(req,resp)=>{
+    resp.render("page2-bk2-2")
+});
+router.get("/page2-bk2-3",(req,resp)=>{
+    resp.render("page2-bk2-3")
+});
+router.get("/page2-bk3-1",(req,resp)=>{
+    resp.render("page2-bk3-1")
+});
+router.get("/page2-bk3-2",(req,resp)=>{
+    resp.render("page2-bk3-2")
+});
+router.get("/page2-bk3-3",(req,resp)=>{
+    resp.render("page2-bk3-3")
+});
+router.get("/page3",(req,resp)=>{
+    resp.render("page3")
+});
+router.get("/page4",(req,resp)=>{
+    resp.render("page4")
+});
+router.get("/page2-bk4-1",(req,resp)=>{
+    resp.render("page2-bk4-1")
+});
+router.get("/page2-bk4-2",(req,resp)=>{
+    resp.render("page2-bk4-2")
+});
+router.get("/page2-bk4-3",(req,resp)=>{
+    resp.render("page2-bk4-3")
+});
+router.get("/pifa",(req,resp)=>{
+    resp.render("pifa")
+});
+router.get("/Privacy",(req,resp)=>{
+    resp.render("Privacy")
+});
+router.get("/productCustomization",(req,resp)=>{
+    resp.render("productCustomization")
+});
+router.get("/productCustomization_nan",(req,resp)=>{
+    resp.render("productCustomization_nan")
+});
+router.get("/productCustomization_nv",(req,resp)=>{
+    resp.render("productCustomization_nv")
+});
+router.get("/profession",(req,resp)=>{
+    resp.render("profession")
+});
+router.get("/readMore",(req,resp)=>{
+    resp.render("readMore")
+});
+router.get("/shopping",(req,resp)=>{
+    resp.render("shopping")
+});
+router.get("/songho",(req,resp)=>{
+    resp.render("songho")
+});
+router.get("/storesETQ",(req,resp)=>{
+    resp.render("storesETQ")
+});
+router.get("/stylistTeacher",(req,resp)=>{
+    resp.render("stylistTeacher")
+});
+router.get("/terms",(req,resp)=>{
+    resp.render("terms")
+});
+router.get("/theDesigner",(req,resp)=>{
+    resp.render("theDesigner")
+});
+router.get("/tuihuo",(req,resp)=>{
+    resp.render("tuihuo")
+});
+router.get("/wenti",(req,resp)=>{
+    resp.render("wenti")
+});
+router.get("/zhaohui",(req,resp)=>{
+    resp.render("zhaohui")
+});
+
+
+
+module.exports=router;

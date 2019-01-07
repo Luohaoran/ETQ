@@ -1,0 +1,203 @@
+*{
+    margin: 0;
+    padding:0;
+}
+body{
+    /*background-color: black;*/
+    /*height: 5000px;*/
+}
+a:focus{text-decoration: none}
+a{
+    text-decoration: none;
+    color:inherit;
+}
+.row{
+    margin: 0;
+    padding: 0;
+}
+.header{
+    padding-top: 30px;
+    width: 98%;
+    left: 15px;
+    top: 10px;
+    position: fixed;
+    height: 80px;
+    line-height: 20px;
+    /*outline: 1px solid black;*/
+    transition: all .3s linear;
+    overflow: hidden;
+    z-index: 10;
+}
+.yetouwenzi{
+    font-size: 12px;
+}
+.xiahua{
+    margin-left: 3%;
+}
+.dd{
+    margin-left: 5px;
+}
+.zicaidan{
+    width: 100%;
+    /*outline: 1px solid black;*/
+    top: 80px;
+    height: 380px;
+    position: relative;
+    left: -1px;
+    transition: all .3s linear;
+    z-index: 1;
+}
+.one,.two{
+    position: absolute;
+    padding-top: 30px;
+    width: 100%;
+    /*height: 380px;*/
+    transition: all .3s linear;
+    opacity: 0;
+}
+/*第一个下拉*/
+.one>div{
+    height: 380px;
+}
+.one>div>p,.two>div>p{
+    /*margin-top: -30px;*/
+    margin-left: 5px;
+    overflow: unset;
+}
+.oneimg,.twoimg{
+    height: 300px;
+    background-size: cover;
+    margin-bottom: 10px;
+}
+.oneimg1{
+    background-image: url("../images/one-1.jpg");
+}
+.oneimg2{
+    background-image: url("../images/one-2.jpg");
+}
+.oneimg3{
+    background-image: url("../images/one-3.jpg");
+}
+.oneimg4{
+    background-image: url("../images/one-4.jpg");
+}
+.two{
+    width: 100%;
+    /*height: 200px;*/
+    /*border: 1px solid black;*/
+}
+#gouwuche{
+    background-color: black;
+    color: #d7d7d7;
+    text-align: center;
+    line-height: 30px;
+    width: 60px;
+    height: 30px;
+    border-radius: 5px;
+    border: none;
+    margin-left: 6%;
+}
+
+/*第二个下拉*/
+.twoimg1{
+    background-image: url("../images/two-1.jpg");
+}
+.twoimg2{
+    background-image: url("../images/two-2.jpg");
+}
+.twoimg3{
+    background-image: url("../images/two-3.jpg");
+}
+.twoimg4{
+    background-image: url("../images/two-4.jpg");
+}
+.qwq{
+    margin-left: 100px;
+}
+
+/*.sousuo{*/
+    /*padding-left: 100px;*/
+/*}*/
+/*搜索框*/
+.search,.help{
+    height: 300px;
+    /*border: 1px solid black;*/
+    position: absolute;
+    top: 0;
+    overflow: hidden;
+    width: 100%;
+    z-index: -1;
+    display: none;
+    background: white;
+    transition: all .3s;
+}
+.baibai{
+    /*color: white;*/
+}
+.sousuokuang{
+    background-color: white;
+    font-size: 30px;
+    border: none;
+    margin-left: 30px;
+    width: 300px;
+    margin-top: 50px;
+}
+.sousuokuang:focus{
+    outline: none !important;
+    /*border:1px solid red;*/
+    /*box-shadow: 0 0 10px #719ECE;*/
+}
+.jianyik{
+    padding-top: 80px;
+}
+.end{
+    font-weight: bolder;
+    font-size: 30px;
+    position: absolute;
+    right: 40px;
+    top: 5px;
+    border: none;
+    background: none;
+}
+.cc{
+    margin-top: 100px;
+    margin-left: 50px;
+}
+.cc>button{
+    margin: 0;
+    padding: 0;
+    height: 30px;
+    /*margin-left: -5px;*/
+}
+/*登陆*/
+.login{
+    top: 80px;
+    right:0;
+    position: absolute;
+    /*z-index: 999;*/
+    width: 0;
+    height: 0;
+    overflow: hidden;
+    /*border: 1px solid white;*/
+    background-color: white;
+    transition: all .3s linear;
+}
+.loginson{
+    padding-left: 20px;
+}
+.loginson>input{
+    margin-top: 20px;
+    width: 250px;
+    height: 50px;
+    border: 1px solid black;
+}
+.loginson>button{
+    width: 122px;
+    height: 50px;
+    border: none;
+    transition: all .3s linear;
+}
+.loginson>button:hover{
+    background-color: black;
+    color: white;
+}

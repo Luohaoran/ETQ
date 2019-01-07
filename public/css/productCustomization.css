@@ -1,0 +1,127 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+section{
+    margin-top: 100px;
+    height: 1100px;
+    /*border: 1px solid red;*/
+}
+
+.divLeft{
+    width: 15%;
+    height: 1000px;
+    /*border: 1px solid red;*/
+    float: left;
+}
+.divRight{
+    width: 79%;
+    height: 1000px;
+    /*border: 1px solid;*/
+    float: left;
+}
+.divLeft_logo{
+    width: 100%;
+    height: 100px;
+    /*border: 1px solid;*/
+}
+.divLeft_logo h1{
+    font-size: 25px;
+    letter-spacing: 5px;
+    line-height: 120px;
+    margin-left: 30px;
+}
+.divLeft_sex h2{
+    font-size: 18px;
+    margin-left: 30px;
+    margin-bottom: 10px;
+}
+.divLeft_sex a{
+    font-size: 14px;
+    margin-left: 50px;
+    margin-top: 5px;
+    cursor: pointer;
+    color: black;
+    text-decoration: none;
+}
+.divLeft_sex a:hover{
+    color: #0B85CC;
+}
+.divRight_Top{
+    width: 100%;
+    height: 100px;
+    margin-left: 15px;
+    /*border: 1px solid red;*/
+}
+.divRight_Top h1{
+    font-size: 22px;
+    line-height: 140px;
+}
+.divRight_bottom{
+    width: 100%;
+    height: 950px;
+    /*margin-left: 15px;*/
+    /*border: 1px solid red;*/
+}
+.divRight_fy{
+    width: 14%;
+    height: 30px;
+    /*border: 1px solid red;*/
+    margin: 0 auto;
+    margin-top: 20px;
+}
+.divRight_fy button{
+    width: 70px;
+    height: 25px;
+    float: left;
+    background-color: rgba(0, 0, 0, 0.66);
+    color: white;
+    border: 0;
+}
+.divRight_fy button:hover{
+    background-color: rgb(0, 0, 0);
+    color: white;
+}
+.divRight_fy div{
+    font-size: 14px;
+    float: left;
+}
+.divRight_img{
+    width: 15%;
+    height: 300px;
+    /*border: 1px solid red;*/
+    margin-left: 15px;
+    margin-top: 15px;
+    float: left;
+}
+.divRight_img img{
+    width: 100%;
+}
+.divRight_img p{
+    margin-top: 5px;
+    font-size: 12px;
+    text-align: center;
+}
+.divRight_img h6{
+    text-align: center;
+    font-weight: normal;
+}
+#qwq :hover{
+    cursor: pointer;
+}
+.modal-content{
+    width: 300px;
+    height: 300px;
+}
+.tishi{
+    margin-top: 100px;
+    text-align: center;
+    font-size: 20px;
+}
+#btn{
+    margin-left: 80px;
+}
+.modal-footer{
+    margin-top: 70px;
+    text-align: left;
+}

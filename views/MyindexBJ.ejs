@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Title</title>
+    <link rel="stylesheet" href="../bootstrap-3.3.5-dist/css/bootstrap.css">
+    <link rel="stylesheet" href="../css/button.css">
+    <link rel="stylesheet" href="../css/nav.css">
+    <link rel="stylesheet" href="../css/MyindexBJ.css">
+    <link rel="stylesheet" href="../css/yewei.css">
+    <link rel="stylesheet" href="../css/danxuan.css">
+    <!--[if lt IE 9]>
+    <script src="https://cdn.bootcss.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+    <script src="https://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+    <!--<![endif]&ndash;&gt;-->
+</head>
+<body>
+<%-include('common/nav.ejs')%>
+<section>
+    <div class="myDivLeft">
+        <div class="myDivLeft_1">
+            <h1>我的账户</h1>
+        </div>
+        <div class="myDivLeft_2">
+            <a href="/MyIndex" class="xianWu">返回</a>
+        </div>
+    </div>
+    <div class="myDivRight">
+        <form action="/updata.do" method="post" id="myform">
+        <div class="myDivRight_GG">
+                <h1>更改个人信息</h1>
+                <div class="myDivRight_GG_1">
+                    <p>姓名</p>
+                    <input type="text" class="input" name="upname">
+                </div>
+                <div class="myDivRight_GG_1 myDivRight_GG_left">
+                    <p>手机号码</p>
+                    <input type="text" class="input" maxlength="11" id="phone" name="phone1" placeholder="只能输入数字,最大11位"/>
+                </div>
+                <div class="myDivRight_GG_1">
+                    <p>电子邮件</p>
+                    <input type="email" class="input inputMailList" id="email" name="email" placeholder="请输入邮箱" required autofocus autocomplete="off">
+                </div>
+                <div class="myDivRight_GG_1 myDivRight_GG_left">
+                    <P>性别*</P>
+                    <input type="radio" class="GG_sex" name="sex" checked="checked" value="男"><span class="nan">男</span>
+                    <input type="radio"  class="GG_sex GG_nv" name="sex" value="女"><span class="nv">女</span>
+                </div>
+            </div>
+            <div class="chuangjianzhanghao">
+                <input type="checkbox" onclick="yincang()" id="xiugai"><span style="font-size: 16px" class="xiugaimima" >修改密码</span>
+            </div>
+            <div class="myDivRight_MM">
+                <div id="myDivRight_YC">
+                    <div class="myDivRight_GG_1">
+                        <p>当前密码</p>
+                        <input type="password" class="input" name="pwd1" id="dangqian" placeholder="请输入当前密码" onchange="jiance()">
+                        <br>
+                        <span id="mimatishi"></span>
+                    </div>
+                    <div class="myDivRight_GG_1 myDivRight_GG_left">
+                        <p>新密码</p>
+                        <input type="password" class="input" name="pwd2" id="test" placeholder="请输入8到16位数字与字母组合" onblur="checkPassword()">
+                        <span id="tishi"></span>
+                    </div>
+                    <div class="myDivRight_GG_1 myDivRight_GG_left ximmima" >
+                        <p>重复新密码</p>
+                        <input type="password" class="input" name="pwd3" id="jiancha" placeholder="请与前一次输入密码一致" onblur="jiancha2()">
+                        <span id="tishi2"></span>
+                    </div>
+                </div>
+            </div>
+                <button class="myDivRight_Btu">保存</button>
+        </form>
+        <hr>
+        <!--<div class="myDivRight_1">-->
+            <!--<h1>地址</h1>-->
+            <!--<P>账单地址</P>-->
+            <!--<a href="MyindexBJDZ.html" class="xianWu">编辑地址</a>-->
+        <!--</div>-->
+        <!--<div class="myDivRight_2">-->
+            <!--<h1></h1>-->
+            <!--<div class="divP">-->
+                <!--<p>收件地址</p>-->
+                <!--<p>你尚未添加地址</p>-->
+            <!--</div>-->
+            <!--<a href="/MyindexBJDZ" class="xianWu">添加地址</a><br>-->
+        <!--</div>-->
+        <!--<hr>-->
+        <!--<div class="myDivRight_1">-->
+            <!--<h1>命令</h1>-->
+            <!--<P>你目前没有订单</P>-->
+        <!--</div>-->
+
+        <!--<div class="myDivRight_1">-->
+        <!--</div>-->
+        <!--<hr>-->
+    </div>
+</section>
+<%-include('common/nav.ejs')%>
+
+<script src="../js/jquery-3.1.1.js"></script>
+<script src="../js/yewei.js"></script>
+<script src="../bootstrap-3.3.5-dist/js/bootstrap.js"></script>
+<script src="../js/jquery.mailAutoComplete-4.0.js"></script>
+<script src="../js/nav.js"></script>
+<script>
+    $(".inputMailList").mailAutoComplete();//使用方法
+    var pwdReg = /^(?![0-9]+$)(?![a-zA-Z]+$)[0-9A-Za-z]{8,16}$/;//8到16位数字与字母组合
+    function yincang() {
+     console.log($("#xiugai").is(":checked"))
+        if ($("#xiugai").is(":checked")) {
+         $(".myDivRight_MM").css({
+             // "display":"unset",
+             "height":"320px"
+         })
+        }else {
+            $(".myDivRight_MM").css({
+                "height":"0px"
+            })
+        }
+    }
+    function checkPassword(){
+        $("#tishi").html("")
+        var value = $('#test').val();
+        if(!pwdReg.test(value)){
+            $("#test").val("");
+            $("#tishi").html("请输入8到16位数字与字母组合")
+        }else{
+            $("#tishi").html("密码格式正确")
+        }
+    }
+    function jiancha2() {
+        var value = $('#jiancha').val();
+        console.log($("#test").val())
+        if (value!=$("#test").val()){
+            $("#jiancha").val("");
+            $("#tishi2").html("请与上一次输入密码一致")
+        }else {
+            $("#tishi2").html("正确")
+        }
+    }
+    function jiance() {
+        $.ajax({
+            type:"post",
+            url:"/jiance.do",
+            data:$("#myform").serialize(),
+            success:function (data) {
+                if (data[0].user_pw!=$("#dangqian").val()){
+                    $("#mimatishi").html("密码错误")
+                } else {
+                    $("#mimatishi").html("密码正确")
+                }
+            }
+        })
+    }
+</script>
+</body>
+</html>

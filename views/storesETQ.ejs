@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Title</title>
+    <link rel="stylesheet" href="../bootstrap-3.3.5-dist/css/bootstrap.css">
+    <link rel="stylesheet" href="../css/button.css">
+    <link rel="stylesheet" href="../css/nav.css">
+    <link rel="stylesheet" href="../css/storesETQ.css">
+    <link rel="stylesheet" href="../css/yewei.css">
+    <!--[if lt IE 9]>
+    <script src="https://cdn.bootcss.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+    <script src="https://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+    <!--<![endif]&ndash;&gt;-->
+</head>
+<style>
+    .divMD>div{
+        margin-top: 30px;
+    }
+</style>
+
+<body>
+<%-include('common/nav.ejs')%>
+<section>
+    <div class="divLogo">
+        <h1>专卖店查询</h1>
+    </div>
+    <div class="divSS">
+        <h3>您附近的专卖店</h3>
+        <div class="clsInit">
+            省:<select id="selF"><option>请选择</option></select>
+            市:<select id="selT"><option>请选择</option></select>
+            区:<select id="selC"><option>请选择</option></select>
+            <input id="Button1" onclick="searchStudent()" type="button" value="一键查询" class="btn"/>
+        </div>
+        <h5>查询结果:</h5>
+        <div class="divMD" id="divMD">
+        </div>
+        <div  class="ye " >
+            <button onclick="prevPage()">上一页</button>
+            <span id="numberBlock" class="yema">总共 <span id="totalpage"></span> 页</span><!--上一页  1,2,3,4,5…… 下一页-->
+            <button onclick="nextPage()">下一页</button>
+        </div>
+    </div>
+</section>
+<%-include('common/footer.ejs')%>
+<script src="../js/jquery-3.1.1.js"></script>
+<script src="../js/yewei.js"></script>
+<script src="../bootstrap-3.3.5-dist/js/bootstrap.js"></script>
+<script src="../js/nav.js"></script>
+<script src="../js/jquery.min.js"></script>
+<script type="text/javascript">
+    $(function(){
+        function objInit(obj){
+            return $(obj).html("<option>请选择</option>");
+        }
+        var arrData = {
+            四川省:{
+                成都市: "锦江区,青羊区,金牛区,武侯区,成华区,龙泉驿区,青白江区,新都区,温江区,双流区",
+                内江市: "市中区,东兴区,威远县,资中县,隆昌县",
+                自贡市:"自流井区,贡井区,大安区,沿滩区,荣县,富顺县",
+                攀枝花市:"东区,西区,仁和区,米易县,盐边县",
+                泸州市:"江阳区,纳溪区,龙马潭区,泸县,合江县,叙永县,古蔺县",
+                德阳市:"旌阳区,中江县,罗江县",
+                绵阳市:"涪城区,游仙区,安州区,三台县,盐亭县,梓潼县",
+                广元市:"利州区,昭化区,朝天区,旺苍县,青川县,剑阁县,苍溪县",
+            },
+            北京市:{
+                北京市: "东城区,西城区,朝阳区,丰台区,石景山区,海淀区,门头沟区,房山区,通州区,顺义区,昌平区,大兴区,怀柔区,平谷区,密云区,延庆区"
+            },
+            上海市:{
+                上海市: "黄浦区,徐汇区,长宁区,静安区,普陀区,,虹口区,杨浦区,闵行区,宝山区,嘉定区,浦东新区,金山区,松江区,青浦区,奉贤区,崇明县"
+            },
+            深圳市:{
+                深圳市: "罗湖区,福田区,南山区,宝安区,普陀区,,虹口区,盐田区"
+            },
+            重庆市:{
+                重庆市: "黄浦区,徐汇区,长宁区,静安区,普陀区,,虹口区,杨浦区,闵行区,宝山区,嘉定区,浦东新区,金山区,松江区,青浦区,奉贤区,崇明县"
+            },
+
+        };
+        $.each(arrData, function(pF){
+            $("#selF").append("<option>"+pF+"</option>");
+        });
+        $("#selF").change(function(){
+            objInit("#selT");
+            objInit("#selC");
+            $.each(arrData, function(pF, pS){
+                if($("#selF option:selected").text()==pF){
+                    $.each(pS, function(pT, pC){
+                        $("#selT").append("<option>"+pT+"</option>");
+                    });
+                    $("#selT").change(function(){
+                        objInit("#selC");
+                        $.each(pS, function(pT, pC){
+                            if($("#selT option:selected").text()==pT){
+                                $.each(pC.split(","),function(){
+                                    $("#selC").append("<option>"+this+"</option>");
+                                });
+                            }
+                        });
+                    });
+                }
+            });
+        });
+        $("#Button1").click(function(){
+            var strValue = "您选择的省份:";
+            strValue += $("#selF option:selected").text();
+            strValue += "&nbsp;您选择的城市:";
+            strValue += $("#selT option:selected").text();
+            strValue += "&nbsp;您选择的区县:";
+            strValue += $("#selC option:selected").text();
+            $("#divTip").show().html(strValue);
+        });
+    })
+
+    //=====================数据库
+    window.onload=function(){
+        // ShowAll();
+        pageCount();
+        ShowAllq();
+    };
+    //显示所有
+    // function ShowAll() {
+    //     $.ajax({
+    //         type:"post",
+    //         url:"/ShowAll.do",
+    //         success:function (data) {
+    //             console.log(data);
+    //             for(var i=0;i<data.length;i++){
+    //                 // console.log("111");
+    //                 document.getElementById("divMD").innerHTML+="<div class=\"divText\">\n" +
+    //                     "                <h1>"+data[i].biaoti+"</h1>\n" +
+    //                     "                <P>"+data[i].leixing+"</P>\n" +
+    //                     "                <p>"+data[i].dizhi+"</p>\n" +
+    //                     "                <P>"+data[i].dianhua+"</P>\n" +
+    //                     "            </div>"
+    //             }
+    //         }
+    //     })
+    // }
+
+//====================================页数
+    var currentPage=1;//当前在第几页
+    // var currentPagee=1;//当前在第几页
+    var pageTotal=0;//总页数
+    var totalpage=document.getElementById("totalpage");
+
+    //分页显示
+    function ShowAllq() {
+        $.ajax({
+            type:"get",
+            url:"/ShowAllq.do",
+            data: {//传参
+                currentPage
+            },
+            success:function (data) {
+                // console.log(data.length);
+                document.getElementById("divMD").innerHTML=""
+                for(var i=0;i<data.length;i++){
+                    // console.log("111");
+                    document.getElementById("divMD").innerHTML+="<div class=\"divText\">\n" +
+                        "                <h1>"+data[i].biaoti+"</h1>\n" +
+                        "                <P>"+data[i].leixing+"</P>\n" +
+                        "                <p>"+data[i].dizhi+"</p>\n" +
+                        "                <P>"+data[i].dianhua+"</P>\n" +
+                        "            </div>"
+                }
+            }
+        })
+// console.log(currentPage+"==========")
+// console.log(pageTotal+"==========")
+    }
+
+
+    //多条件查询
+    function searchStudent() {
+        i=1
+        currentPage=1;//当前在第几页
+        // var currentPagee=1;//当前在第几页
+        pageTotal=0;//总页数
+        $.ajax({
+            type:"get",
+            url:"/search.do",
+            data: {//传参
+                selF:document.getElementById("selF").value,
+                selT:document.getElementById("selT").value,
+                selC:document.getElementById("selC").value
+            },
+            success:function (data) {
+                document.getElementById("divMD").innerHTML=""
+                for(var i=0;i<data.length;i++){
+                    document.getElementById("divMD").innerHTML+="<div class=\"divText\">\n" +
+                        "                <h1>"+data[i].biaoti+"</h1>\n" +
+                        "                <P>"+data[i].leixing+"</P>\n" +
+                        "                <p>"+data[i].dizhi+"</p>\n" +
+                        "                <P>"+data[i].dianhua+"</P>\n" +
+                        "            </div>"
+                }
+            }
+        })
+        $.ajax({
+            type:"get",
+            url:"/ShowAllqq.do",
+            data: {//传参
+                currentPage,
+                selF:document.getElementById("selF").value,
+                selT:document.getElementById("selT").value,
+                selC:document.getElementById("selC").value
+            },
+            success:function (data) {
+                // console.log(data);
+                document.getElementById("divMD").innerHTML=""
+                for(var i=0;i<data.length;i++){
+                    // console.log("111");
+                    document.getElementById("divMD").innerHTML+="<div class=\"divText\">\n" +
+                        "                <h1>"+data[i].biaoti+"</h1>\n" +
+                        "                <P>"+data[i].leixing+"</P>\n" +
+                        "                <p>"+data[i].dizhi+"</p>\n" +
+                        "                <P>"+data[i].dianhua+"</P>\n" +
+                        "            </div>"
+                }
+            }
+        })
+        $.ajax({
+            type:"get",
+            url:"/TotalPagess.do",
+            data: {//传参
+                selF:document.getElementById("selF").value,
+                selT:document.getElementById("selT").value,
+                selC:document.getElementById("selC").value
+            },
+            success:function (data) {
+                // console.log(data);
+                pageTotal=data;
+                totalpage.innerHTML=pageTotal;
+            }
+        })
+    }
+
+    function searchStudentq() {
+        console.log(currentPage + "=======================")
+        $.ajax({
+            type: "get",
+            url: "/search.do",
+            data: {//传参
+                selF: document.getElementById("selF").value,
+                selT: document.getElementById("selT").value,
+                selC: document.getElementById("selC").value
+            },
+            success: function (data) {
+                // console.log(data);
+                document.getElementById("divMD").innerHTML = ""
+                for (var i = 0; i < data.length; i++) {
+                    // console.log(data);
+                    document.getElementById("divMD").innerHTML += "<div class=\"divText\">\n" +
+                        "                <h1>" + data[i].biaoti + "</h1>\n" +
+                        "                <P>" + data[i].leixing + "</P>\n" +
+                        "                <p>" + data[i].dizhi + "</p>\n" +
+                        "                <P>" + data[i].dianhua + "</P>\n" +
+                        "            </div>"
+                }
+            }
+        })
+        $.ajax({
+            type: "get",
+            url: "/ShowAllqq.do",
+            data: {//传参
+                currentPage,
+                selF: document.getElementById("selF").value,
+                selT: document.getElementById("selT").value,
+                selC: document.getElementById("selC").value
+            },
+            success: function (data) {
+                // console.log(data);
+                document.getElementById("divMD").innerHTML = ""
+                for (var i = 0; i < data.length; i++) {
+                    // console.log("111");
+                    document.getElementById("divMD").innerHTML += "<div class=\"divText\">\n" +
+                        "                <h1>" + data[i].biaoti + "</h1>\n" +
+                        "                <P>" + data[i].leixing + "</P>\n" +
+                        "                <p>" + data[i].dizhi + "</p>\n" +
+                        "                <P>" + data[i].dianhua + "</P>\n" +
+                        "            </div>"
+                }
+            }
+        })
+    }
+
+
+ //==============总页数
+    function  pageCount() {
+        $.ajax({
+            type:"get",
+            url:"/TotalPages.do",
+            success:function (data) {
+                // console.log(data);
+                pageTotal=data;
+                totalpage.innerHTML=pageTotal;
+            }
+        })
+    }
+
+    var i=0
+    //=================上一页
+    function prevPage() {
+        console.log(currentPage+"454444444444444")
+        currentPage--;
+        if (currentPage <1) {
+            currentPage = 1;
+        }else {
+            if (i==0){
+                console.log(currentPage+"=============="+i)
+                console.log(pageTotal+"==========")
+                ShowAllq();
+            } else if (i==1){
+                searchStudentq();
+                console.log(currentPage+"=============="+i)
+                console.log(pageTotal+"==========")
+            }
+            totalpage.innerHTML=currentPage+"/"+pageTotal;
+        }
+
+        // else {
+        //     ShowAllq();
+        //     totalpage.innerHTML = currentPage + "/" + pageTotal;
+        // }
+    }
+    //=======下一页
+    function nextPage() {
+        currentPage++;
+        console.log(currentPage+"=11111111="+pageTotal)
+        if(currentPage>pageTotal){
+            console.log("121")
+            currentPage=pageTotal;
+        }
+        else {
+            if (i==0){
+                ShowAllq();
+            } else if (i==1){
+                console.log("111111111111111")
+                searchStudentq();
+            }
+            totalpage.innerHTML=currentPage+"/"+pageTotal;
+        }
+        // else {
+        //     ShowAllq();
+        //     // searchStudent();
+        //     totalpage.innerHTML=currentPage+"/"+pageTotal;
+        // }
+    }
+
+
+</script>
+</body>
+</html>

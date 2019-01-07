@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Title</title>
+    <link rel="stylesheet" href="../bootstrap-3.3.5-dist/css/bootstrap.css">
+    <link rel="stylesheet" href="../css/button.css">
+    <link rel="stylesheet" href="../css/nav.css">
+    <link rel="stylesheet" href="../css/delete1.css">
+    <!--[if lt IE 9]>
+    <script src="https://cdn.bootcss.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+    <script src="https://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+    <!--<![endif]&ndash;&gt;-->
+</head>
+<body>
+<%-include('common/nav.ejs')%>
+<section id="nei">
+    <div><h1>购物车</h1></div>
+    <br>
+    <br>
+    <div id="nei1">
+        <a href="newCollection" class="xianWu"><span><</span> &nbsp;&nbsp;继续购物 </a>
+    </div>
+    <form id="form">
+        <table id="table">
+            <thead>
+            <tr>
+                <th width="25%">产品</th>
+                <th width="10%">颜色</th>
+                <th width="20%">尺寸</th>
+                <th width="15%">QTY</th>
+                <th width="7%"></th>
+                <th width="8%">价钱</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td>
+                    <img src="<%=shopData[0].pic_path%>" alt="">
+                    &nbsp;&nbsp; &nbsp;&nbsp;<span><%=shopData[0].g_name%></span></td>
+                <td><%=shopData[0].g_color%></td>
+                <td><%=shopData[0].g_size%></td>
+                <td>
+                    <select>
+                        <option value="0">1</option>
+                        <option value="1">2</option>
+                    </select>
+                </td>
+                <td><a  class="xianWu">删除</a></td>
+                <td>€ <%=shopData[0].price%></td>
+            </tr>
+            </tbody>
+        </table>
+    </form>
+    <div class="fu"></div>
+    <div id="you">
+        <div class="zuo">
+            <input onclick="you()" type="checkbox" style="width: 20px;height: 20px"></input>
+            &nbsp; <span>我有优惠券代码</span>
+            <br><br>
+            <div class="fei">
+                <input class="qq"  placeholder="Coupon code">
+                <button type="button">应用</button>
+            </div>
+        </div>
+        <div class="mian">
+            <table >
+                <tr class="tr1">
+                    <td class="da" height="50px"><input name="xuan" style="width: 20px;height: 20px" type="radio" checked="checked"><span>&nbsp;&nbsp; 邮政运费：</span>
+                        <br>
+                        <input name="xuan" style="width: 20px;height: 20px" type="radio"><span>&nbsp;&nbsp; 顺丰速运：</span>
+                    </td>
+                    <td>
+                        <span class="qq">免费</span><br>
+                        <span class="qq">€ 15</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td><span><br></span></td>
+                </tr>
+                <tr>
+                    <td colspan="2" class="xian"></td>
+                </tr>
+                <tr>
+                    <td height="40px">小计</td>
+                    <td>€ 429.75</td>
+                </tr>
+                <tr>
+                    <td colspan="2" class="xian"></td>
+                </tr>
+                <tr>
+                    <td height="40px">总</td>
+                    <td>€ 429.75</td>
+                </tr>
+            </table>
+            <br><br>
+
+            <input type="button" value="查看" class="cha">
+        </div>
+    </div>
+</section>
+<%-include('common/yewei.ejs')%>
+<script src="../bootstrap-3.3.5-dist/js/jquery-1.11.3.js"></script>
+<script src="../bootstrap-3.3.5-dist/js/bootstrap.js"></script>
+<script src="../js/nav.js"></script>
+<script src="../js/delete.js"></script>
+<script>
+
+
+
+</script>
+</body>
+</html>

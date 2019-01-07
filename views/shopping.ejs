@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Title</title>
+    <link rel="stylesheet" href="../bootstrap-3.3.5-dist/css/bootstrap.css">
+    <link rel="stylesheet" href="../css/shopping1.css">
+    <link rel="stylesheet" href="../css/button.css">
+    <link rel="stylesheet" href="../css/nav.css">
+    <!--[if lt IE 9]>
+    <script src="https://cdn.bootcss.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+    <script src="https://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+    <!--<![endif]&ndash;&gt;-->
+</head>
+<body >
+<%-include('common/nav.ejs')%>
+
+<section id="nei">
+    <div id="tu">
+        <div id="tuX">
+            <div>
+                <img onclick="tu1()" src="" alt="" id="smTu1">
+            </div>
+            <div>
+                <img onclick="tu2()" src="" alt="" id="smTu2">
+            </div>
+            <div>
+                <img onclick="tu3()" src="" alt="" id="smTu3">
+            </div>
+            <div>
+                <img onclick="tu4()" src="" alt="" id="smTu4">
+            </div>
+            <div>
+                <img onclick="tu5()" src="" alt="" id="smTu5">
+            </div>
+        </div>
+        <div class="divR" onclick="da()" >
+
+            <div id="tuD">
+                <img id="tu11" src="" alt="" onmousewheel="return bigimg(this)">
+                <!--<img id="tu11" src="../images/shopping/11.jpg" onmousewheel="return bigimg()" style="cursor:pointer" />-->
+            </div>
+        </div>
+        <div class="divW">
+            <h1 id="bigTitle"></h1>
+            <br>
+            <span id="sPrice"></span>
+            <br><br>
+            <!--<span>欧盟价格€ 255。欧盟以外免税（21％）。</span><br><br>-->
+            <span>这款柔美的踝部款式采用高光漆皮制成，结合了经典设计和现代主义特色。</span><br><br>
+            <a href="#miao" class="read1">更多信息</a><br><br>
+            <select name="" id="select1">
+            <!--<option value="0" id="op1">黑色Polido</option>-->
+            </select>
+            &nbsp;
+            <select name="" id="select2">
+                <option value="0">尺寸</option>
+                <!--<option value="1">欧盟36 | 美国3 | 英国2 <a href="">通知</a></option>-->
+                <!--<option value="1">欧盟37 | 美国4 | 英国3 <a href="">通知</a></option>-->
+                <!--<option value="1">欧盟38 | 美国5 | 英国4 <a href="">通知</a></option>-->
+                <!--<option value="1">欧盟39 | 美国6 | 英国5 <a href="">通知</a></option>-->
+            </select>
+            <br>
+            <br>
+            <a class="addition" id="goToCar" href="">
+                <!--<a id="tian"></a>-->
+                添加至购物袋
+            </a>
+            <br><br>
+            <div id="gou">
+            <span>√ &nbsp;请在00:00之前订购，将于3-10日内收到货物。</span><br>
+            <span>√ &nbsp;免费有机环保包装</span><br>
+            <span>√ &nbsp;全球免费送货</span><br>
+            </div>
+        </div>
+    </div>
+    <a href="" name="miao"></a>
+    <div class="fu"></div>
+    <div id="wenZ">
+        <div id="wen">
+            <h1>描述</h1>
+            <br>
+            <span id="discribe">描述文件</span>
+            <br><br>
+            <!--<ul>-->
+                <!--<li>手工制作在葡萄牙</li>-->
+                <!--<li>专利小牛皮鞋面</li>-->
+                <!--<li>小牛皮衬里</li>-->
+                <!--<li>坚固耐用的橡胶外底</li>-->
+            <!--</ul>-->
+        </div>
+        <div id="xin">
+            <h1>信息</h1>
+            <br>
+            <span>送货</span><br>
+            <span>我们目前在所有订单上提供免费的全球送货。</span><br><br>
+            <span>尺码</span><br>
+            <span>符合真实尺寸。<a class="read">你需要大小建议吗？</a></span><br><br>
+            <span>退货和换货</span><br>
+            <span>如果您对购买不满意，可以在14天内将其退回给我们进行更换或退款。更多信息</span><br><br>
+            <span>联系</span><br>
+            <span>联系我们（+31）202 614 615，或发送电子邮件至 </span>
+                <a href="mailto:service@etq-amsterdam.com" class="xianWu">service@etq-amsterdam.com</a>
+        </div>
+    </div>
+    <div class="fu"></div>
+    <div id="tup">
+        <div id="tu1">
+            <img src="" alt="" id="bigImg01">
+        </div>
+        <div id="tu2">
+            <img src="" alt="" id="bigImg02">
+        </div>
+        <div id="tu3">
+            <img src="../images/da3.jpg" alt="">
+        </div>
+    </div>
+</section>
+<%-include('common/yewei.ejs')%>
+
+<script src="../js/jquery-3.1.1.js"></script>
+<script src="../bootstrap-3.3.5-dist/js/bootstrap.js"></script>
+<script src="../js/nav.js"></script>
+<script src="../js/shopping.js"></script>
+<script>
+    $(function () {
+        var r= window.location.search.substr(1);
+        var a=decodeURI(r);
+        var goods=a.replace("shopName=","").replace("shopColor=","").split("&");
+        var shopColor=goods[1];
+        var shopName=goods[0];
+        console.log(shopName,shopColor)
+        $.ajax({
+            type:"get",
+            url:"/getGoodsPic",
+            async:true,
+            data:{
+                shopColor:shopColor,
+                shopName:shopName
+            },
+            success:function(data){
+                console.log($("#tu1").attr("src","../"+data[0].pic_path))
+                $("#smTu1").attr("src",data[0].pic_path)
+                $("#tu11").attr("src",data[0].pic_path)
+                $("#smTu2").attr("src",data[2].pic_path)
+                $("#smTu3").attr("src",data[3].pic_path)
+                $("#smTu4").attr("src",data[4].pic_path)
+                $("#smTu5").attr("src",data[5].pic_path)
+                $("#select1").append("<option value='Value'>"+shopColor+"</option>")
+                $("#bigImg01").attr("src",data[0].pic_path);
+                $("#bigImg02").attr("src",data[2].pic_path);
+            }
+        })
+        $.ajax({
+            type:"get",
+            url:"/getSize",
+            async:true,
+            data:{
+                shopColor:shopColor,
+                shopName:shopName
+            },
+            success:function (data) {
+                for(var i=0;i<data.length;i++){
+                    if(data[i].inventory==0){
+                        $("#select2").append("<option value='Value' disabled=''>"+data[i].size+"（缺货需定制）"+"</option>")
+                    }else if(data[i].inventory>0){
+                        $("#select2").append("<option value='Value'>"+data[i].size+"</option>")
+                    }
+                }
+                $("#sPrice").text("￥  "+data[0].price)
+                $("#bigTitle").text(shopName.replace("_"," ")+"  "+shopColor)
+                $("#discribe").text(data[0].discribe)
+            }
+        })
+
+    })
+    $("#select2").change(function () {
+        var shoesSize=$('#select2 option:selected').text()
+        var r= window.location.search.substr(1);
+        var a=decodeURI(r);
+        var goods=a.replace("shopName=","").replace("shopColor=","").split("&");
+        var shoesColor=goods[1];
+        var shoesName=goods[0];
+        if($('#select2 option:selected').text()=="尺寸"||user_id.innerHTML==""){
+            $("#goToCar").css("color","gray")
+        }else{
+            $("#goToCar").css("color","white")
+            $("#goToCar").click(function () {
+                $.ajax({
+                    type:"get",
+                    url:"shoppingcar.do",
+                    data:{
+                        shoesName:shoesName,
+                        shoesColor:shoesColor,
+                        shoesSize:shoesSize
+                    },
+                    async:true,
+                    success:function (data) {
+
+                    }
+                })
+            })
+
+        }
+
+    })
+
+</script>
+</body>
+</html>
